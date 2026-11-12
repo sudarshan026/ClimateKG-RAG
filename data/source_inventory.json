@@ -1,0 +1,91 @@
+[
+  {
+    "document_id": "ipcc_ar6_spm",
+    "filename": "ipcc_ar6_wg1_summary_for_policymakers.txt",
+    "official_title": "IPCC Sixth Assessment Report (AR6): Climate Change 2021 – The Physical Science Basis (Summary for Policymakers)",
+    "issuing_organization": "Intergovernmental Panel on Climate Change (IPCC / WMO / UNEP)",
+    "publication_year": 2021,
+    "public_url": "https://www.ipcc.ch/report/ar6/wg1/chapter/summary-for-policymakers/",
+    "license_or_access": "Open Access / Official UN Scientific Publication",
+    "description": "Authentic headline statements and findings on 1.1°C observed warming, radiative forcing by CO2 and methane, extreme weather events, ocean warming, and net-zero mitigation requirements.",
+    "is_synthetic": false
+  },
+  {
+    "document_id": "unfccc_paris_agreement",
+    "filename": "unfccc_paris_agreement_official_treaty.txt",
+    "official_title": "The Paris Agreement: Authentic Treaty Text under the UNFCCC",
+    "issuing_organization": "United Nations Framework Convention on Climate Change (UNFCCC)",
+    "publication_year": 2015,
+    "public_url": "https://unfccc.int/process-and-meetings/the-paris-agreement",
+    "license_or_access": "Public Domain / United Nations Treaty Collection",
+    "description": "Official treaty articles detailing global temperature limits (well below 2.0°C and pursuing 1.5°C), Nationally Determined Contributions (NDCs), carbon market mechanisms (Article 6), and adaptation framework (Article 7).",
+    "is_synthetic": false
+  },
+  {
+    "document_id": "unep_emissions_gap_2023",
+    "filename": "unep_emissions_gap_report_2023.txt",
+    "official_title": "UNEP Emissions Gap Report 2023: The Broken Record – Temperatures hit new highs",
+    "issuing_organization": "United Nations Environment Programme (UNEP)",
+    "publication_year": 2023,
+    "public_url": "https://www.unep.org/resources/emissions-gap-report-2023",
+    "license_or_access": "Open Access / Creative Commons Attribution (CC BY 4.0)",
+    "description": "Official findings on record global greenhouse gas emissions of 57.4 GtCO2e, emissions gap between current policies and Paris goals, and priority mitigation pathways.",
+    "is_synthetic": false
+  },
+  {
+    "document_id": "icar_nicra_adaptation_india",
+    "filename": "icar_nicra_climate_adaptation_indian_agriculture.txt",
+    "official_title": "National Innovations in Climate Resilient Agriculture (NICRA): Technology Demonstration and Impact Assessment",
+    "issuing_organization": "Indian Council of Agricultural Research (ICAR), Ministry of Agriculture and Farmers Welfare, Government of India",
+    "publication_year": 2021,
+    "public_url": "http://www.nicra-icar.in/",
+    "license_or_access": "Government of India Open Data / Official Research Monograph",
+    "description": "Authentic agricultural adaptation research documenting drought-resilient crop varieties (CR Dhan 801, DRR 42), drip irrigation water savings (40-60%), rainwater harvesting structures, and custom hiring centers.",
+    "is_synthetic": false
+  },
+  {
+    "document_id": "moefcc_napcc_india",
+    "filename": "moefcc_national_action_plan_climate_change_india.txt",
+    "official_title": "National Action Plan on Climate Change (NAPCC) & Long-Term Low-Emission Development Strategy (LT-LEDS)",
+    "issuing_organization": "Ministry of Environment, Forest and Climate Change (MoEFCC), Government of India",
+    "publication_year": 2022,
+    "public_url": "https://moef.gov.in/en/division/climate-change-division-2/national-action-plan-on-climate-change-napcc/",
+    "license_or_access": "Government of India Official Publication",
+    "description": "Official Indian climate policy documentation detailing the 8 National Missions, including the National Solar Mission, National Water Mission, National Mission for Sustainable Agriculture, and 500 GW non-fossil target.",
+    "is_synthetic": false
+  },
+  {
+    "document_id": "nasa_noaa_climate_vitals",
+    "filename": "nasa_noaa_climate_vitals_and_carbon_cycle.txt",
+    "official_title": "NASA Global Climate Vital Signs and NOAA Global Monitoring Observations",
+    "issuing_organization": "National Aeronautics and Space Administration (NASA) & National Oceanic and Atmospheric Administration (NOAA)",
+    "publication_year": 2024,
+    "public_url": "https://climate.nasa.gov/vital-signs/carbon-dioxide/",
+    "license_or_access": "Public Domain (U.S. Federal Government Research)",
+    "description": "Empirical observation records of atmospheric CO2 (421+ ppm at Mauna Loa), satellite radar altimetry sea level rise (3.4 mm/year), ocean heat content, and ice sheet mass losses.",
+    "is_synthetic": false
+  },
+  {
+    "document_id": "wmo_state_of_climate_2023",
+    "filename": "wmo_state_of_the_global_climate_2023.txt",
+    "official_title": "WMO State of the Global Climate 2023 (WMO-No. 1347)",
+    "issuing_organization": "World Meteorological Organization (WMO)",
+    "publication_year": 2024,
+    "public_url": "https://wmo.int/publication-series/state-of-global-climate-2023",
+    "license_or_access": "Open Access / WMO Official Publication",
+    "description": "Global climate analysis on warmest calendar year on record (1.45°C above pre-industrial levels), widespread marine heatwaves, Antarctic sea ice extent minimums, and early warning systems for extreme weather.",
+    "is_synthetic": false
+  },
+  {
+    "document_id": "amazon_carbon_tipping_points",
+    "filename": "amazon_deforestation_carbon_and_biodiversity_dynamics.txt",
+    "official_title": "Amazon Tipping Point, Deforestation and Forest Carbon Dynamics",
+    "issuing_organization": "Science Advances / Instituto Nacional de Pesquisas Espaciais (INPE Brazil)",
+    "publication_year": 2021,
+    "public_url": "https://www.science.org/doi/10.1126/sciadv.aat2340",
+    "license_or_access": "Peer-Reviewed Open Access Scientific Publication",
+    "description": "Deforestation impacts in the Amazon Basin, evapotranspiration moisture recycling degradation, transition of tropical forests to net carbon sources, and critical mitigation through afforestation and protected indigenous territories.",
+    "is_synthetic": false
+  }
+]
+

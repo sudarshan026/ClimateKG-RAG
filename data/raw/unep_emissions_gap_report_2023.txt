@@ -1,0 +1,14 @@
+UNEP Emissions Gap Report 2023: The Broken Record
+Issuing Organization: United Nations Environment Programme (UNEP)
+Publication Date: November 2023 | ISBN: 978-92-807-4098-1
+
+KEY FINDINGS: GLOBAL GREENHOUSE GAS EMISSIONS
+1. Record Global Emissions: Global greenhouse gas emissions reached a new record of 57.4 gigatonnes of carbon dioxide equivalent (GtCO2e) in 2022, representing a 1.2 percent increase over 2021 levels. Fossil fuel emissions accounted for over two-thirds of total greenhouse gas emissions.
+2. The Emissions Gap to 1.5°C and 2°C: Current unconditional Nationally Determined Contributions (NDCs) under the Paris Agreement project global greenhouse gas emissions to reach 52 GtCO2e in 2030. To get on track for limiting global warming to 2.0°C, emissions must be reduced by 28 percent by 2030; to limit warming to 1.5°C, emissions must fall by 42 percent by 2030, leaving an emissions gap of 24 GtCO2e.
+3. Temperature Projections: Fully implementing current unconditional NDCs puts the world on track for a 2.9°C temperature rise above pre-industrial levels by the end of the century. Implementing conditional NDCs reduces projected warming to 2.5°C.
+
+MITIGATION PATHWAYS AND DECARBONIZATION
+Global warming can be mitigated by rapid and deep transformations across key sectors:
+- Power Sector: Accelerated phase-down of unabated coal power and rapid installation of solar photovoltaics and wind energy.
+- Industrial Decarbonization: Implementation of energy efficiency standards and carbon capture and storage (CCS) for hard-to-abate heavy industries.
+- Methane Abatement: Targeted reduction of methane emissions from fossil fuel operations (leak detection and flaring elimination), agriculture, and municipal waste provides immediate short-term cooling benefits.

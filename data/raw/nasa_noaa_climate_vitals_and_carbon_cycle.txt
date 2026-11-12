@@ -1,0 +1,16 @@
+NASA Global Climate Vital Signs & NOAA Global Monitoring Observations
+Issuing Organization: National Aeronautics and Space Administration (NASA) & National Oceanic and Atmospheric Administration (NOAA)
+Publication Series: Earth Science Observations (2024)
+
+ATMOSPHERIC CARBON DIOXIDE AND RADIATIVE FORCING
+Atmospheric carbon dioxide concentrations reached 422.8 parts per million (ppm) at NOAA Mauna Loa Observatory in 2024, representing an increase of more than 50 percent since the beginning of the industrial era. Atmospheric carbon dioxide traps heat in the lower troposphere through the greenhouse effect, producing positive radiative forcing.
+
+SATELLITE ALTIMETRY AND GLOBAL SEA LEVEL RISE
+Data from satellite altimeters operated by NASA, CNES, and NOAA (TOPEX/Poseidon, Jason-1/2/3, and Sentinel-6 Michael Freilich) reveal that global mean sea level has risen by approximately 10 centimeters since 1993, at an accelerating rate currently exceeding 3.4 millimeters per year.
+Sea level rise is driven primarily by two physical mechanisms caused by global warming:
+1. Thermal Expansion: Ocean water expands as it absorbs excess heat; ocean warming accounts for approximately one-third of observed global sea level rise.
+2. Land Ice Melt: The melting of mountain glaciers, the Greenland Ice Sheet, and the Antarctic Ice Sheet contributes approximately two-thirds of global sea level rise.
+Sea level rise directly causes coastal flooding, saltwater intrusion into coastal agricultural aquifers, and shoreline erosion worldwide.
+
+ARCTIC CRYOSPHERE OBSERVATIONS
+Satellite observations confirm that Arctic sea ice minimum extent has decreased at a rate of 12.2 percent per decade since 1979. The loss of reflective white sea ice lowers planetary albedo, causing the Arctic ocean to absorb more solar radiation and triggering self-reinforcing Arctic amplification.

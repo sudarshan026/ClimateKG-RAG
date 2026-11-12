@@ -1,0 +1,731 @@
+{
+  "nodes": [
+    {
+      "id": "ent_greenhousegas_carbon_dioxide",
+      "name": "Carbon Dioxide",
+      "type": "GreenhouseGas",
+      "canonical_name": "Carbon Dioxide",
+      "description": "",
+      "properties": {
+        "source_chunk": "doc_0f81cb63495e_p1_c0",
+        "extraction_method": "deterministic_lexicon"
+      }
+    },
+    {
+      "id": "ent_climatephenomenon_global_warming",
+      "name": "Global Warming",
+      "type": "ClimatePhenomenon",
+      "canonical_name": "Global Warming",
+      "description": "",
+      "properties": {
+        "source_chunk": "doc_e17c09f24a56_p1_c1",
+        "extraction_method": "deterministic_lexicon"
+      }
+    },
+    {
+      "id": "ent_climateimpact_drought",
+      "name": "Drought",
+      "type": "ClimateImpact",
+      "canonical_name": "Drought",
+      "description": "",
+      "properties": {
+        "source_chunk": "doc_f69b61a076a5_p1_c1",
+        "extraction_method": "deterministic_lexicon"
+      }
+    },
+    {
+      "id": "ent_region_amazon_basin",
+      "name": "Amazon Basin",
+      "type": "Region",
+      "canonical_name": "Amazon Basin",
+      "description": "",
+      "properties": {
+        "source_chunk": "doc_d8a31f72ffa2_p1_c0",
+        "extraction_method": "deterministic_lexicon"
+      }
+    },
+    {
+      "id": "ent_mitigationstrategy_afforestation_and_reforestation",
+      "name": "Afforestation And Reforestation",
+      "type": "MitigationStrategy",
+      "canonical_name": "Afforestation And Reforestation",
+      "description": "",
+      "properties": {
+        "source_chunk": "doc_ce1e685252c5_p1_c0",
+        "extraction_method": "deterministic_lexicon"
+      }
+    },
+    {
+      "id": "ent_climatephenomenon_heatwaves",
+      "name": "Heatwaves",
+      "type": "ClimatePhenomenon",
+      "canonical_name": "Heatwaves",
+      "description": "",
+      "properties": {
+        "source_chunk": "doc_0f81cb63495e_p1_c0",
+        "extraction_method": "deterministic_lexicon"
+      }
+    },
+    {
+      "id": "ent_climateimpact_agricultural_yield_decline",
+      "name": "Agricultural Yield Decline",
+      "type": "ClimateImpact",
+      "canonical_name": "Agricultural Yield Decline",
+      "description": "",
+      "properties": {
+        "source_chunk": "doc_da7dd2d39694_p1_c0",
+        "extraction_method": "deterministic_lexicon"
+      }
+    },
+    {
+      "id": "ent_climateimpact_water_scarcity",
+      "name": "Water Scarcity",
+      "type": "ClimateImpact",
+      "canonical_name": "Water Scarcity",
+      "description": "",
+      "properties": {
+        "source_chunk": "doc_da7dd2d39694_p1_c0",
+        "extraction_method": "deterministic_lexicon"
+      }
+    },
+    {
+      "id": "ent_region_india",
+      "name": "India",
+      "type": "Region",
+      "canonical_name": "India",
+      "description": "",
+      "properties": {
+        "source_chunk": "doc_ce1e685252c5_p1_c1",
+        "extraction_method": "deterministic_lexicon"
+      }
+    },
+    {
+      "id": "ent_adaptationstrategy_drip_irrigation",
+      "name": "Drip Irrigation",
+      "type": "AdaptationStrategy",
+      "canonical_name": "Drip Irrigation",
+      "description": "",
+      "properties": {
+        "source_chunk": "doc_da7dd2d39694_p1_c0",
+        "extraction_method": "deterministic_lexicon"
+      }
+    },
+    {
+      "id": "ent_adaptationstrategy_rainwater_harvesting",
+      "name": "Rainwater Harvesting",
+      "type": "AdaptationStrategy",
+      "canonical_name": "Rainwater Harvesting",
+      "description": "",
+      "properties": {
+        "source_chunk": "doc_da7dd2d39694_p1_c1",
+        "extraction_method": "deterministic_lexicon"
+      }
+    },
+    {
+      "id": "ent_policy_national_innovations_in_climate_resilient_agriculture_nicra",
+      "name": "National Innovations in Climate Resilient Agriculture (NICRA)",
+      "type": "Policy",
+      "canonical_name": "National Innovations in Climate Resilient Agriculture (NICRA)",
+      "description": "",
+      "properties": {
+        "source_chunk": "doc_da7dd2d39694_p1_c1",
+        "extraction_method": "deterministic_lexicon"
+      }
+    },
+    {
+      "id": "ent_adaptationstrategy_early_warning_systems",
+      "name": "Early Warning Systems",
+      "type": "AdaptationStrategy",
+      "canonical_name": "Early Warning Systems",
+      "description": "",
+      "properties": {
+        "source_chunk": "doc_0f81cb63495e_p1_c0",
+        "extraction_method": "deterministic_lexicon"
+      }
+    },
+    {
+      "id": "ent_greenhousegas_methane",
+      "name": "Methane",
+      "type": "GreenhouseGas",
+      "canonical_name": "Methane",
+      "description": "",
+      "properties": {
+        "source_chunk": "doc_031858fff425_p1_c1",
+        "extraction_method": "deterministic_lexicon"
+      }
+    },
+    {
+      "id": "ent_greenhousegas_nitrous_oxide",
+      "name": "Nitrous Oxide",
+      "type": "GreenhouseGas",
+      "canonical_name": "Nitrous Oxide",
+      "description": "",
+      "properties": {
+        "source_chunk": "doc_f69b61a076a5_p1_c0",
+        "extraction_method": "deterministic_lexicon"
+      }
+    },
+    {
+      "id": "ent_climatephenomenon_extreme_weather_events",
+      "name": "Extreme Weather Events",
+      "type": "ClimatePhenomenon",
+      "canonical_name": "Extreme Weather Events",
+      "description": "",
+      "properties": {
+        "source_chunk": "doc_f69b61a076a5_p1_c1",
+        "extraction_method": "deterministic_lexicon"
+      }
+    },
+    {
+      "id": "ent_region_global",
+      "name": "Global",
+      "type": "Region",
+      "canonical_name": "Global",
+      "description": "",
+      "properties": {
+        "source_chunk": "doc_0f81cb63495e_p1_c0",
+        "extraction_method": "deterministic_lexicon"
+      }
+    },
+    {
+      "id": "ent_organization_intergovernmental_panel_on_climate_change_ipcc",
+      "name": "Intergovernmental Panel on Climate Change (IPCC)",
+      "type": "Organization",
+      "canonical_name": "Intergovernmental Panel on Climate Change (IPCC)",
+      "description": "",
+      "properties": {
+        "source_chunk": "doc_f69b61a076a5_p1_c0",
+        "extraction_method": "deterministic_lexicon"
+      }
+    },
+    {
+      "id": "ent_researchpaper_ipcc_sixth_assessment_report",
+      "name": "IPCC Sixth Assessment Report",
+      "type": "ResearchPaper",
+      "canonical_name": "IPCC Sixth Assessment Report",
+      "description": "",
+      "properties": {
+        "source_chunk": "doc_f69b61a076a5_p1_c0",
+        "extraction_method": "deterministic_lexicon"
+      }
+    },
+    {
+      "id": "ent_mitigationstrategy_solar_energy",
+      "name": "Solar Energy",
+      "type": "MitigationStrategy",
+      "canonical_name": "Solar Energy",
+      "description": "",
+      "properties": {
+        "source_chunk": "doc_031858fff425_p1_c1",
+        "extraction_method": "deterministic_lexicon"
+      }
+    },
+    {
+      "id": "ent_adaptationstrategy_climate_resilient_agriculture",
+      "name": "Climate-Resilient Agriculture",
+      "type": "AdaptationStrategy",
+      "canonical_name": "Climate-Resilient Agriculture",
+      "description": "",
+      "properties": {
+        "source_chunk": "doc_ce1e685252c5_p1_c0",
+        "extraction_method": "deterministic_lexicon"
+      }
+    },
+    {
+      "id": "ent_organization_ministry_of_environment_forest_and_climate_change_moefcc",
+      "name": "Ministry of Environment, Forest and Climate Change (MoEFCC)",
+      "type": "Organization",
+      "canonical_name": "Ministry of Environment, Forest and Climate Change (MoEFCC)",
+      "description": "",
+      "properties": {
+        "source_chunk": "doc_ce1e685252c5_p1_c0",
+        "extraction_method": "deterministic_lexicon"
+      }
+    },
+    {
+      "id": "ent_climatephenomenon_sea_level_rise",
+      "name": "Sea Level Rise",
+      "type": "ClimatePhenomenon",
+      "canonical_name": "Sea Level Rise",
+      "description": "",
+      "properties": {
+        "source_chunk": "doc_fc45545ab443_p1_c1",
+        "extraction_method": "deterministic_lexicon"
+      }
+    },
+    {
+      "id": "ent_climateimpact_coastal_flooding",
+      "name": "Coastal Flooding",
+      "type": "ClimateImpact",
+      "canonical_name": "Coastal Flooding",
+      "description": "",
+      "properties": {
+        "source_chunk": "doc_fc45545ab443_p1_c1",
+        "extraction_method": "deterministic_lexicon"
+      }
+    },
+    {
+      "id": "ent_region_arctic",
+      "name": "Arctic",
+      "type": "Region",
+      "canonical_name": "Arctic",
+      "description": "",
+      "properties": {
+        "source_chunk": "doc_fc45545ab443_p1_c1",
+        "extraction_method": "deterministic_lexicon"
+      }
+    },
+    {
+      "id": "ent_organization_national_aeronautics_and_space_administration_nasa",
+      "name": "National Aeronautics and Space Administration (NASA)",
+      "type": "Organization",
+      "canonical_name": "National Aeronautics and Space Administration (NASA)",
+      "description": "",
+      "properties": {
+        "source_chunk": "doc_fc45545ab443_p1_c0",
+        "extraction_method": "deterministic_lexicon"
+      }
+    },
+    {
+      "id": "ent_organization_national_oceanic_and_atmospheric_administration_noaa",
+      "name": "National Oceanic and Atmospheric Administration (NOAA)",
+      "type": "Organization",
+      "canonical_name": "National Oceanic and Atmospheric Administration (NOAA)",
+      "description": "",
+      "properties": {
+        "source_chunk": "doc_fc45545ab443_p1_c0",
+        "extraction_method": "deterministic_lexicon"
+      }
+    },
+    {
+      "id": "ent_policy_paris_agreement",
+      "name": "Paris Agreement",
+      "type": "Policy",
+      "canonical_name": "Paris Agreement",
+      "description": "",
+      "properties": {
+        "source_chunk": "doc_e17c09f24a56_p1_c0",
+        "extraction_method": "deterministic_lexicon"
+      }
+    },
+    {
+      "id": "ent_mitigationstrategy_wind_energy",
+      "name": "Wind Energy",
+      "type": "MitigationStrategy",
+      "canonical_name": "Wind Energy",
+      "description": "",
+      "properties": {
+        "source_chunk": "doc_031858fff425_p1_c1",
+        "extraction_method": "deterministic_lexicon"
+      }
+    },
+    {
+      "id": "ent_mitigationstrategy_carbon_capture_and_storage",
+      "name": "Carbon Capture and Storage",
+      "type": "MitigationStrategy",
+      "canonical_name": "Carbon Capture and Storage",
+      "description": "",
+      "properties": {
+        "source_chunk": "doc_031858fff425_p1_c1",
+        "extraction_method": "deterministic_lexicon"
+      }
+    },
+    {
+      "id": "ent_organization_united_nations_framework_convention_on_climate_change_unfccc",
+      "name": "United Nations Framework Convention on Climate Change (UNFCCC)",
+      "type": "Organization",
+      "canonical_name": "United Nations Framework Convention on Climate Change (UNFCCC)",
+      "description": "",
+      "properties": {
+        "source_chunk": "doc_e17c09f24a56_p1_c0",
+        "extraction_method": "deterministic_lexicon"
+      }
+    },
+    {
+      "id": "ent_greenhousegas_greenhouse_gases",
+      "name": "Greenhouse Gases",
+      "type": "GreenhouseGas",
+      "canonical_name": "Greenhouse Gases",
+      "description": "",
+      "properties": {
+        "source_chunk": "doc_e17c09f24a56_p1_c1",
+        "extraction_method": "deterministic_lexicon"
+      }
+    },
+    {
+      "id": "ent_climatephenomenon_ocean_acidification",
+      "name": "Ocean Acidification",
+      "type": "ClimatePhenomenon",
+      "canonical_name": "Ocean Acidification",
+      "description": "",
+      "properties": {
+        "source_chunk": "doc_0f81cb63495e_p1_c0",
+        "extraction_method": "deterministic_lexicon"
+      }
+    },
+    {
+      "id": "ent_climateimpact_coral_bleaching",
+      "name": "Coral Bleaching",
+      "type": "ClimateImpact",
+      "canonical_name": "Coral Bleaching",
+      "description": "",
+      "properties": {
+        "source_chunk": "doc_0f81cb63495e_p1_c0",
+        "extraction_method": "deterministic_lexicon"
+      }
+    },
+    {
+      "id": "ent_region_europe",
+      "name": "Europe",
+      "type": "Region",
+      "canonical_name": "Europe",
+      "description": "",
+      "properties": {
+        "source_chunk": "doc_0f81cb63495e_p1_c0",
+        "extraction_method": "deterministic_lexicon"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "ent_greenhousegas_carbon_dioxide",
+      "target": "ent_climatephenomenon_global_warming",
+      "key": "rel_ent_greenhousegas_carbon_dioxide_CAUSES_ent_climatephenomenon_global_warming_doc_f69b61a076a5_p1_c0",
+      "relation_id": "rel_ent_greenhousegas_carbon_dioxide_CAUSES_ent_climatephenomenon_global_warming_doc_f69b61a076a5_p1_c0",
+      "type": "CAUSES",
+      "evidence_text": "Methane emissions from fossil fuel extraction, livestock enteric fermentation, and waste have a 20-year global warming potential over 80 times greater than carbon dioxide.",
+      "source_chunk_id": "doc_f69b61a076a5_p1_c0",
+      "doc_id": "doc_f69b61a076a5",
+      "filename": "ipcc_ar6_wg1_summary_for_policymakers.txt",
+      "page_number": 1,
+      "confidence": 0.82,
+      "is_inferred": false,
+      "properties": {
+        "extraction_method": "sentence_cooccurrence"
+      }
+    },
+    {
+      "source": "ent_greenhousegas_carbon_dioxide",
+      "target": "ent_climatephenomenon_ocean_acidification",
+      "key": "rel_ent_greenhousegas_carbon_dioxide_CAUSES_ent_climatephenomenon_ocean_acidification_doc_0f81cb63495e_p1_c0",
+      "relation_id": "rel_ent_greenhousegas_carbon_dioxide_CAUSES_ent_climatephenomenon_ocean_acidification_doc_0f81cb63495e_p1_c0",
+      "type": "CAUSES",
+      "evidence_text": "Ocean Acidification: Absorption of anthropogenic carbon dioxide by ocean waters has reduced surface ocean pH to levels lower than in at least 26,000 years, accelerating ocean acidification and inhibiting calcification in marine organisms.",
+      "source_chunk_id": "doc_0f81cb63495e_p1_c0",
+      "doc_id": "doc_0f81cb63495e",
+      "filename": "wmo_state_of_the_global_climate_2023.txt",
+      "page_number": 1,
+      "confidence": 0.82,
+      "is_inferred": false,
+      "properties": {
+        "extraction_method": "sentence_cooccurrence"
+      }
+    },
+    {
+      "source": "ent_climatephenomenon_global_warming",
+      "target": "ent_region_global",
+      "key": "rel_ent_climatephenomenon_global_warming_OCCURS_IN_ent_region_global_doc_f69b61a076a5_p1_c0",
+      "relation_id": "rel_ent_climatephenomenon_global_warming_OCCURS_IN_ent_region_global_doc_f69b61a076a5_p1_c0",
+      "type": "OCCURS_IN",
+      "evidence_text": "The estimated observed human-induced global warming is 1.07°C.",
+      "source_chunk_id": "doc_f69b61a076a5_p1_c0",
+      "doc_id": "doc_f69b61a076a5",
+      "filename": "ipcc_ar6_wg1_summary_for_policymakers.txt",
+      "page_number": 1,
+      "confidence": 0.82,
+      "is_inferred": false,
+      "properties": {
+        "extraction_method": "sentence_cooccurrence"
+      }
+    },
+    {
+      "source": "ent_climatephenomenon_global_warming",
+      "target": "ent_region_global",
+      "key": "rel_ent_climatephenomenon_global_warming_OCCURS_IN_ent_region_global_doc_f69b61a076a5_p1_c1",
+      "relation_id": "rel_ent_climatephenomenon_global_warming_OCCURS_IN_ent_region_global_doc_f69b61a076a5_p1_c1",
+      "type": "OCCURS_IN",
+      "evidence_text": "LIMITING FUTURE CLIMATE CHANGE\nD.1 From a physical science perspective, limiting human-induced global warming to a specific level requires limiting cumulative CO2 emissions, reaching at least net zero CO2 emissions, along with strong reductions in other greenhouse gas emissions.",
+      "source_chunk_id": "doc_f69b61a076a5_p1_c1",
+      "doc_id": "doc_f69b61a076a5",
+      "filename": "ipcc_ar6_wg1_summary_for_policymakers.txt",
+      "page_number": 1,
+      "confidence": 0.82,
+      "is_inferred": false,
+      "properties": {
+        "extraction_method": "sentence_cooccurrence"
+      }
+    },
+    {
+      "source": "ent_climatephenomenon_global_warming",
+      "target": "ent_region_global",
+      "key": "rel_ent_climatephenomenon_global_warming_OCCURS_IN_ent_region_global_doc_fc45545ab443_p1_c0",
+      "relation_id": "rel_ent_climatephenomenon_global_warming_OCCURS_IN_ent_region_global_doc_fc45545ab443_p1_c0",
+      "type": "OCCURS_IN",
+      "evidence_text": "Sea level rise is driven primarily by two physical mechanisms caused by global warming:\n1.",
+      "source_chunk_id": "doc_fc45545ab443_p1_c0",
+      "doc_id": "doc_fc45545ab443",
+      "filename": "nasa_noaa_climate_vitals_and_carbon_cycle.txt",
+      "page_number": 1,
+      "confidence": 0.82,
+      "is_inferred": false,
+      "properties": {
+        "extraction_method": "sentence_cooccurrence"
+      }
+    },
+    {
+      "source": "ent_climatephenomenon_global_warming",
+      "target": "ent_region_global",
+      "key": "rel_ent_climatephenomenon_global_warming_OCCURS_IN_ent_region_global_doc_031858fff425_p1_c0",
+      "relation_id": "rel_ent_climatephenomenon_global_warming_OCCURS_IN_ent_region_global_doc_031858fff425_p1_c0",
+      "type": "OCCURS_IN",
+      "evidence_text": "To get on track for limiting global warming to 2.0°C, emissions must be reduced by 28 percent by 2030; to limit warming to 1.5°C, emissions must fall by 42 percent by 2030, leaving an emissions gap of 24 GtCO2e.",
+      "source_chunk_id": "doc_031858fff425_p1_c0",
+      "doc_id": "doc_031858fff425",
+      "filename": "unep_emissions_gap_report_2023.txt",
+      "page_number": 1,
+      "confidence": 0.82,
+      "is_inferred": false,
+      "properties": {
+        "extraction_method": "sentence_cooccurrence"
+      }
+    },
+    {
+      "source": "ent_climatephenomenon_global_warming",
+      "target": "ent_region_global",
+      "key": "rel_ent_climatephenomenon_global_warming_OCCURS_IN_ent_region_global_doc_031858fff425_p1_c1",
+      "relation_id": "rel_ent_climatephenomenon_global_warming_OCCURS_IN_ent_region_global_doc_031858fff425_p1_c1",
+      "type": "OCCURS_IN",
+      "evidence_text": "MITIGATION PATHWAYS AND DECARBONIZATION\nGlobal warming can be mitigated by rapid and deep transformations across key sectors:\n- Power Sector: Accelerated phase-down of unabated coal power and rapid installation of solar photovoltaics and wind energy.",
+      "source_chunk_id": "doc_031858fff425_p1_c1",
+      "doc_id": "doc_031858fff425",
+      "filename": "unep_emissions_gap_report_2023.txt",
+      "page_number": 1,
+      "confidence": 0.82,
+      "is_inferred": false,
+      "properties": {
+        "extraction_method": "sentence_cooccurrence"
+      }
+    },
+    {
+      "source": "ent_climatephenomenon_global_warming",
+      "target": "ent_mitigationstrategy_wind_energy",
+      "key": "rel_ent_climatephenomenon_global_warming_MITIGATED_BY_ent_mitigationstrategy_wind_energy_doc_031858fff425_p1_c1",
+      "relation_id": "rel_ent_climatephenomenon_global_warming_MITIGATED_BY_ent_mitigationstrategy_wind_energy_doc_031858fff425_p1_c1",
+      "type": "MITIGATED_BY",
+      "evidence_text": "MITIGATION PATHWAYS AND DECARBONIZATION\nGlobal warming can be mitigated by rapid and deep transformations across key sectors:\n- Power Sector: Accelerated phase-down of unabated coal power and rapid installation of solar photovoltaics and wind energy.",
+      "source_chunk_id": "doc_031858fff425_p1_c1",
+      "doc_id": "doc_031858fff425",
+      "filename": "unep_emissions_gap_report_2023.txt",
+      "page_number": 1,
+      "confidence": 0.82,
+      "is_inferred": false,
+      "properties": {
+        "extraction_method": "sentence_cooccurrence"
+      }
+    },
+    {
+      "source": "ent_climatephenomenon_heatwaves",
+      "target": "ent_climateimpact_agricultural_yield_decline",
+      "key": "rel_ent_climatephenomenon_heatwaves_AFFECTS_ent_climateimpact_agricultural_yield_decline_doc_da7dd2d39694_p1_c0",
+      "relation_id": "rel_ent_climatephenomenon_heatwaves_AFFECTS_ent_climateimpact_agricultural_yield_decline_doc_da7dd2d39694_p1_c0",
+      "type": "AFFECTS",
+      "evidence_text": "In Indo-Gangetic Plains and peninsular basins, heatwaves during grain-filling stages accelerate crop maturation and cause severe agricultural yield decline in wheat and rice.",
+      "source_chunk_id": "doc_da7dd2d39694_p1_c0",
+      "doc_id": "doc_da7dd2d39694",
+      "filename": "icar_nicra_climate_adaptation_indian_agriculture.txt",
+      "page_number": 1,
+      "confidence": 0.82,
+      "is_inferred": false,
+      "properties": {
+        "extraction_method": "sentence_cooccurrence"
+      }
+    },
+    {
+      "source": "ent_climatephenomenon_heatwaves",
+      "target": "ent_climateimpact_drought",
+      "key": "rel_ent_climatephenomenon_heatwaves_AFFECTS_ent_climateimpact_drought_doc_f69b61a076a5_p1_c0",
+      "relation_id": "rel_ent_climatephenomenon_heatwaves_AFFECTS_ent_climateimpact_drought_doc_f69b61a076a5_p1_c0",
+      "type": "AFFECTS",
+      "evidence_text": "Evidence of observed changes in extremes such as heatwaves, heavy precipitation, droughts, and tropical cyclones, and, in particular, their attribution to human influence, has strengthened since AR5.",
+      "source_chunk_id": "doc_f69b61a076a5_p1_c0",
+      "doc_id": "doc_f69b61a076a5",
+      "filename": "ipcc_ar6_wg1_summary_for_policymakers.txt",
+      "page_number": 1,
+      "confidence": 0.82,
+      "is_inferred": false,
+      "properties": {
+        "extraction_method": "sentence_cooccurrence"
+      }
+    },
+    {
+      "source": "ent_climatephenomenon_heatwaves",
+      "target": "ent_climateimpact_drought",
+      "key": "rel_ent_climatephenomenon_heatwaves_AFFECTS_ent_climateimpact_drought_doc_f69b61a076a5_p1_c1",
+      "relation_id": "rel_ent_climatephenomenon_heatwaves_AFFECTS_ent_climateimpact_drought_doc_f69b61a076a5_p1_c1",
+      "type": "AFFECTS",
+      "evidence_text": "Evidence of observed changes in extremes such as heatwaves, heavy precipitation, droughts, and tropical cyclones, and, in particular, their attribution to human influence, has strengthened since AR5.",
+      "source_chunk_id": "doc_f69b61a076a5_p1_c1",
+      "doc_id": "doc_f69b61a076a5",
+      "filename": "ipcc_ar6_wg1_summary_for_policymakers.txt",
+      "page_number": 1,
+      "confidence": 0.82,
+      "is_inferred": false,
+      "properties": {
+        "extraction_method": "sentence_cooccurrence"
+      }
+    },
+    {
+      "source": "ent_climatephenomenon_heatwaves",
+      "target": "ent_climateimpact_coral_bleaching",
+      "key": "rel_ent_climatephenomenon_heatwaves_AFFECTS_ent_climateimpact_coral_bleaching_doc_0f81cb63495e_p1_c0",
+      "relation_id": "rel_ent_climatephenomenon_heatwaves_AFFECTS_ent_climateimpact_coral_bleaching_doc_0f81cb63495e_p1_c0",
+      "type": "AFFECTS",
+      "evidence_text": "Marine heatwaves cause thermal stress to marine ecosystems and trigger severe coral bleaching across tropical coral reefs.",
+      "source_chunk_id": "doc_0f81cb63495e_p1_c0",
+      "doc_id": "doc_0f81cb63495e",
+      "filename": "wmo_state_of_the_global_climate_2023.txt",
+      "page_number": 1,
+      "confidence": 0.82,
+      "is_inferred": false,
+      "properties": {
+        "extraction_method": "sentence_cooccurrence"
+      }
+    },
+    {
+      "source": "ent_climateimpact_water_scarcity",
+      "target": "ent_adaptationstrategy_drip_irrigation",
+      "key": "rel_ent_climateimpact_water_scarcity_ADAPTED_BY_ent_adaptationstrategy_drip_irrigation_doc_da7dd2d39694_p1_c0",
+      "relation_id": "rel_ent_climateimpact_water_scarcity_ADAPTED_BY_ent_adaptationstrategy_drip_irrigation_doc_da7dd2d39694_p1_c0",
+      "type": "ADAPTED_BY",
+      "evidence_text": "Micro-Irrigation and Drip Technologies:\nPrecision drip irrigation and sprinkler systems adapt agricultural systems to growing water scarcity.",
+      "source_chunk_id": "doc_da7dd2d39694_p1_c0",
+      "doc_id": "doc_da7dd2d39694",
+      "filename": "icar_nicra_climate_adaptation_indian_agriculture.txt",
+      "page_number": 1,
+      "confidence": 0.82,
+      "is_inferred": false,
+      "properties": {
+        "extraction_method": "sentence_cooccurrence"
+      }
+    },
+    {
+      "source": "ent_greenhousegas_methane",
+      "target": "ent_climatephenomenon_global_warming",
+      "key": "rel_ent_greenhousegas_methane_CAUSES_ent_climatephenomenon_global_warming_doc_f69b61a076a5_p1_c0",
+      "relation_id": "rel_ent_greenhousegas_methane_CAUSES_ent_climatephenomenon_global_warming_doc_f69b61a076a5_p1_c0",
+      "type": "CAUSES",
+      "evidence_text": "Methane emissions from fossil fuel extraction, livestock enteric fermentation, and waste have a 20-year global warming potential over 80 times greater than carbon dioxide.",
+      "source_chunk_id": "doc_f69b61a076a5_p1_c0",
+      "doc_id": "doc_f69b61a076a5",
+      "filename": "ipcc_ar6_wg1_summary_for_policymakers.txt",
+      "page_number": 1,
+      "confidence": 0.82,
+      "is_inferred": false,
+      "properties": {
+        "extraction_method": "sentence_cooccurrence"
+      }
+    },
+    {
+      "source": "ent_climatephenomenon_sea_level_rise",
+      "target": "ent_region_global",
+      "key": "rel_ent_climatephenomenon_sea_level_rise_OCCURS_IN_ent_region_global_doc_fc45545ab443_p1_c0",
+      "relation_id": "rel_ent_climatephenomenon_sea_level_rise_OCCURS_IN_ent_region_global_doc_fc45545ab443_p1_c0",
+      "type": "OCCURS_IN",
+      "evidence_text": "SATELLITE ALTIMETRY AND GLOBAL SEA LEVEL RISE\nData from satellite altimeters operated by NASA, CNES, and NOAA (TOPEX/Poseidon, Jason-1/2/3, and Sentinel-6 Michael Freilich) reveal that global mean sea level has risen by approximately 10 centimeters since 1993, at an accelerating rate currently exceeding 3.4 millimeters per year.",
+      "source_chunk_id": "doc_fc45545ab443_p1_c0",
+      "doc_id": "doc_fc45545ab443",
+      "filename": "nasa_noaa_climate_vitals_and_carbon_cycle.txt",
+      "page_number": 1,
+      "confidence": 0.82,
+      "is_inferred": false,
+      "properties": {
+        "extraction_method": "sentence_cooccurrence"
+      }
+    },
+    {
+      "source": "ent_climatephenomenon_sea_level_rise",
+      "target": "ent_region_arctic",
+      "key": "rel_ent_climatephenomenon_sea_level_rise_OCCURS_IN_ent_region_arctic_doc_fc45545ab443_p1_c0",
+      "relation_id": "rel_ent_climatephenomenon_sea_level_rise_OCCURS_IN_ent_region_arctic_doc_fc45545ab443_p1_c0",
+      "type": "OCCURS_IN",
+      "evidence_text": "Land Ice Melt: The melting of mountain glaciers, the Greenland Ice Sheet, and the Antarctic Ice Sheet contributes approximately two-thirds of global sea level rise.",
+      "source_chunk_id": "doc_fc45545ab443_p1_c0",
+      "doc_id": "doc_fc45545ab443",
+      "filename": "nasa_noaa_climate_vitals_and_carbon_cycle.txt",
+      "page_number": 1,
+      "confidence": 0.82,
+      "is_inferred": false,
+      "properties": {
+        "extraction_method": "sentence_cooccurrence"
+      }
+    },
+    {
+      "source": "ent_climatephenomenon_sea_level_rise",
+      "target": "ent_climateimpact_coastal_flooding",
+      "key": "rel_ent_climatephenomenon_sea_level_rise_CAUSES_ent_climateimpact_coastal_flooding_doc_fc45545ab443_p1_c0",
+      "relation_id": "rel_ent_climatephenomenon_sea_level_rise_CAUSES_ent_climateimpact_coastal_flooding_doc_fc45545ab443_p1_c0",
+      "type": "CAUSES",
+      "evidence_text": "Sea level rise directly causes coastal flooding, saltwater intrusion into coastal agricultural aquifers, and shoreline erosion worldwide.",
+      "source_chunk_id": "doc_fc45545ab443_p1_c0",
+      "doc_id": "doc_fc45545ab443",
+      "filename": "nasa_noaa_climate_vitals_and_carbon_cycle.txt",
+      "page_number": 1,
+      "confidence": 0.88,
+      "is_inferred": false,
+      "properties": {
+        "extraction_method": "deterministic_pattern"
+      }
+    },
+    {
+      "source": "ent_climatephenomenon_sea_level_rise",
+      "target": "ent_climateimpact_coastal_flooding",
+      "key": "rel_ent_climatephenomenon_sea_level_rise_AFFECTS_ent_climateimpact_coastal_flooding_doc_fc45545ab443_p1_c0",
+      "relation_id": "rel_ent_climatephenomenon_sea_level_rise_AFFECTS_ent_climateimpact_coastal_flooding_doc_fc45545ab443_p1_c0",
+      "type": "AFFECTS",
+      "evidence_text": "Sea level rise directly causes coastal flooding, saltwater intrusion into coastal agricultural aquifers, and shoreline erosion worldwide.",
+      "source_chunk_id": "doc_fc45545ab443_p1_c0",
+      "doc_id": "doc_fc45545ab443",
+      "filename": "nasa_noaa_climate_vitals_and_carbon_cycle.txt",
+      "page_number": 1,
+      "confidence": 0.82,
+      "is_inferred": false,
+      "properties": {
+        "extraction_method": "sentence_cooccurrence"
+      }
+    },
+    {
+      "source": "ent_climatephenomenon_sea_level_rise",
+      "target": "ent_climateimpact_coastal_flooding",
+      "key": "rel_ent_climatephenomenon_sea_level_rise_CAUSES_ent_climateimpact_coastal_flooding_doc_fc45545ab443_p1_c1",
+      "relation_id": "rel_ent_climatephenomenon_sea_level_rise_CAUSES_ent_climateimpact_coastal_flooding_doc_fc45545ab443_p1_c1",
+      "type": "CAUSES",
+      "evidence_text": "Sea level rise directly causes coastal flooding, saltwater intrusion into coastal agricultural aquifers, and shoreline erosion worldwide.",
+      "source_chunk_id": "doc_fc45545ab443_p1_c1",
+      "doc_id": "doc_fc45545ab443",
+      "filename": "nasa_noaa_climate_vitals_and_carbon_cycle.txt",
+      "page_number": 1,
+      "confidence": 0.88,
+      "is_inferred": false,
+      "properties": {
+        "extraction_method": "deterministic_pattern"
+      }
+    },
+    {
+      "source": "ent_climatephenomenon_sea_level_rise",
+      "target": "ent_climateimpact_coastal_flooding",
+      "key": "rel_ent_climatephenomenon_sea_level_rise_AFFECTS_ent_climateimpact_coastal_flooding_doc_fc45545ab443_p1_c1",
+      "relation_id": "rel_ent_climatephenomenon_sea_level_rise_AFFECTS_ent_climateimpact_coastal_flooding_doc_fc45545ab443_p1_c1",
+      "type": "AFFECTS",
+      "evidence_text": "Sea level rise directly causes coastal flooding, saltwater intrusion into coastal agricultural aquifers, and shoreline erosion worldwide.",
+      "source_chunk_id": "doc_fc45545ab443_p1_c1",
+      "doc_id": "doc_fc45545ab443",
+      "filename": "nasa_noaa_climate_vitals_and_carbon_cycle.txt",
+      "page_number": 1,
+      "confidence": 0.82,
+      "is_inferred": false,
+      "properties": {
+        "extraction_method": "sentence_cooccurrence"
+      }
+    }
+  ]
+}

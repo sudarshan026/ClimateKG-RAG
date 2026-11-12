@@ -1,0 +1,161 @@
+query_id,category,query,method,precision_at_k,recall_at_k,reciprocal_rank,average_precision,ndcg_at_k,latency_ms,claim_evidence_support,results_count
+Q01,factual,What is the primary greenhouse gas driving global warming according to IPCC reports?,TF-IDF,0.6,1.0,1.0,1.0,1.0,2.34,0.75,5
+Q01,factual,What is the primary greenhouse gas driving global warming according to IPCC reports?,BM25,0.6,1.0,1.0,1.0,1.0,0.81,0.75,5
+Q01,factual,What is the primary greenhouse gas driving global warming according to IPCC reports?,Dense Semantic,0.6,1.0,1.0,0.9167,1.0,119822.79,0.75,5
+Q01,factual,What is the primary greenhouse gas driving global warming according to IPCC reports?,Knowledge Graph,0.0,0.0,0.0,0.0,0.0,23.7,1.0,5
+Q01,factual,What is the primary greenhouse gas driving global warming according to IPCC reports?,Hybrid GraphRAG,0.6,1.0,1.0,0.7,1.0,160.54,1.0,5
+Q02,factual,What global temperature threshold does the Paris Agreement aim to hold global warming well below?,TF-IDF,0.6,1.0,1.0,1.0,1.0,4.11,1.0,5
+Q02,factual,What global temperature threshold does the Paris Agreement aim to hold global warming well below?,BM25,0.6,1.0,1.0,1.0,1.0,0.77,0.75,5
+Q02,factual,What global temperature threshold does the Paris Agreement aim to hold global warming well below?,Dense Semantic,0.6,1.0,1.0,0.8667,1.0,737.2,0.75,5
+Q02,factual,What global temperature threshold does the Paris Agreement aim to hold global warming well below?,Knowledge Graph,0.0,0.0,0.0,0.0,0.0,1.82,1.0,5
+Q02,factual,What global temperature threshold does the Paris Agreement aim to hold global warming well below?,Hybrid GraphRAG,0.4,1.0,0.25,0.325,0.8175,31.68,1.0,5
+Q03,factual,What is the role of methane (CH4) as a short-lived climate pollutant and its 20-year warming potential?,TF-IDF,0.6,1.0,1.0,1.0,1.0,2.33,1.0,5
+Q03,factual,What is the role of methane (CH4) as a short-lived climate pollutant and its 20-year warming potential?,BM25,0.6,1.0,1.0,0.9167,1.0,0.81,1.0,5
+Q03,factual,What is the role of methane (CH4) as a short-lived climate pollutant and its 20-year warming potential?,Dense Semantic,0.6,1.0,1.0,1.0,1.0,40.28,1.0,5
+Q03,factual,What is the role of methane (CH4) as a short-lived climate pollutant and its 20-year warming potential?,Knowledge Graph,0.2,0.5,1.0,0.5,0.6131,0.73,1.0,4
+Q03,factual,What is the role of methane (CH4) as a short-lived climate pollutant and its 20-year warming potential?,Hybrid GraphRAG,0.6,1.0,1.0,1.0,1.0,33.93,1.0,5
+Q04,factual,What atmospheric concentration of carbon dioxide was recorded at NOAA Mauna Loa Observatory?,TF-IDF,0.2,1.0,1.0,1.0,1.0,2.37,0.75,5
+Q04,factual,What atmospheric concentration of carbon dioxide was recorded at NOAA Mauna Loa Observatory?,BM25,0.2,1.0,1.0,1.0,1.0,0.59,0.75,5
+Q04,factual,What atmospheric concentration of carbon dioxide was recorded at NOAA Mauna Loa Observatory?,Dense Semantic,0.2,1.0,1.0,1.0,1.0,34.1,0.75,5
+Q04,factual,What atmospheric concentration of carbon dioxide was recorded at NOAA Mauna Loa Observatory?,Knowledge Graph,0.4,1.0,1.0,1.0,1.0,1.06,1.0,5
+Q04,factual,What atmospheric concentration of carbon dioxide was recorded at NOAA Mauna Loa Observatory?,Hybrid GraphRAG,0.2,1.0,0.3333,0.3333,0.5,29.81,1.0,5
+Q05,factual,What organization coordinates global physical science climate assessments under the United Nations?,TF-IDF,0.2,1.0,0.25,0.25,0.4307,2.95,1.0,5
+Q05,factual,What organization coordinates global physical science climate assessments under the United Nations?,BM25,0.2,1.0,0.25,0.25,0.4307,0.69,1.0,5
+Q05,factual,What organization coordinates global physical science climate assessments under the United Nations?,Dense Semantic,0.2,1.0,0.25,0.25,0.4307,82.6,1.0,5
+Q05,factual,What organization coordinates global physical science climate assessments under the United Nations?,Knowledge Graph,0.0,0.0,0.0,0.0,0.0,1.23,1.0,5
+Q05,factual,What organization coordinates global physical science climate assessments under the United Nations?,Hybrid GraphRAG,0.2,1.0,0.5,0.5,0.6309,29.85,1.0,5
+Q06,factual,What atmospheric phenomenon causes ocean acidification?,TF-IDF,0.2,1.0,1.0,1.0,1.0,3.34,1.0,5
+Q06,factual,What atmospheric phenomenon causes ocean acidification?,BM25,0.2,1.0,0.5,0.5,0.6309,0.34,1.0,5
+Q06,factual,What atmospheric phenomenon causes ocean acidification?,Dense Semantic,0.2,1.0,0.25,0.25,0.4307,28.37,1.0,5
+Q06,factual,What atmospheric phenomenon causes ocean acidification?,Knowledge Graph,0.2,1.0,1.0,1.0,1.0,0.42,1.0,2
+Q06,factual,What atmospheric phenomenon causes ocean acidification?,Hybrid GraphRAG,0.2,1.0,1.0,1.0,1.0,25.6,1.0,5
+Q07,semantic,How does anthropogenic carbon pollution destabilize planetary thermal equilibrium?,TF-IDF,0.2,0.5,0.5,0.25,0.3869,2.36,0.75,5
+Q07,semantic,How does anthropogenic carbon pollution destabilize planetary thermal equilibrium?,BM25,0.2,0.5,0.3333,0.1667,0.3066,0.55,0.75,5
+Q07,semantic,How does anthropogenic carbon pollution destabilize planetary thermal equilibrium?,Dense Semantic,0.4,1.0,0.5,0.5,0.6509,32.54,1.0,5
+Q07,semantic,How does anthropogenic carbon pollution destabilize planetary thermal equilibrium?,Knowledge Graph,0.2,0.5,0.5,0.25,0.3869,0.7,1.0,5
+Q07,semantic,How does anthropogenic carbon pollution destabilize planetary thermal equilibrium?,Hybrid GraphRAG,0.4,1.0,0.5,0.5833,0.6934,29.11,1.0,5
+Q08,semantic,In what manner do marine heat spikes degrade tropical reef biomes?,TF-IDF,0.2,1.0,1.0,1.0,1.0,2.32,1.0,5
+Q08,semantic,In what manner do marine heat spikes degrade tropical reef biomes?,BM25,0.2,1.0,1.0,1.0,1.0,0.49,1.0,5
+Q08,semantic,In what manner do marine heat spikes degrade tropical reef biomes?,Dense Semantic,0.2,1.0,1.0,1.0,1.0,31.21,1.0,5
+Q08,semantic,In what manner do marine heat spikes degrade tropical reef biomes?,Knowledge Graph,0.2,1.0,1.0,1.0,1.0,0.52,1.0,3
+Q08,semantic,In what manner do marine heat spikes degrade tropical reef biomes?,Hybrid GraphRAG,0.2,1.0,1.0,1.0,1.0,26.35,1.0,5
+Q09,semantic,Why are high-latitude northern polar regions vulnerable to amplified warming?,TF-IDF,0.0,0.0,0.0,0.0,0.0,2.35,1.0,5
+Q09,semantic,Why are high-latitude northern polar regions vulnerable to amplified warming?,BM25,0.0,0.0,0.0,0.0,0.0,0.64,1.0,5
+Q09,semantic,Why are high-latitude northern polar regions vulnerable to amplified warming?,Dense Semantic,0.4,1.0,1.0,0.8333,1.0,28.5,1.0,5
+Q09,semantic,Why are high-latitude northern polar regions vulnerable to amplified warming?,Knowledge Graph,0.2,1.0,1.0,1.0,1.0,0.7,1.0,3
+Q09,semantic,Why are high-latitude northern polar regions vulnerable to amplified warming?,Hybrid GraphRAG,0.2,1.0,1.0,1.0,1.0,27.13,0.75,5
+Q10,semantic,How do shifting monsoon precipitation dynamics threaten rural food security?,TF-IDF,0.2,1.0,0.25,0.25,0.4307,2.4,0.75,5
+Q10,semantic,How do shifting monsoon precipitation dynamics threaten rural food security?,BM25,0.2,1.0,0.3333,0.3333,0.5,0.59,0.75,5
+Q10,semantic,How do shifting monsoon precipitation dynamics threaten rural food security?,Dense Semantic,0.2,1.0,0.5,0.5,0.6309,29.13,0.6667,5
+Q10,semantic,How do shifting monsoon precipitation dynamics threaten rural food security?,Knowledge Graph,0.2,1.0,1.0,1.0,1.0,0.57,1.0,3
+Q10,semantic,How do shifting monsoon precipitation dynamics threaten rural food security?,Hybrid GraphRAG,0.2,1.0,1.0,1.0,1.0,26.83,1.0,5
+Q11,semantic,What clean technology approaches help eliminate fossil fuel reliance across power grids?,TF-IDF,0.4,1.0,1.0,0.7,0.8503,2.45,1.0,5
+Q11,semantic,What clean technology approaches help eliminate fossil fuel reliance across power grids?,BM25,0.4,1.0,1.0,0.7,0.8503,0.59,1.0,5
+Q11,semantic,What clean technology approaches help eliminate fossil fuel reliance across power grids?,Dense Semantic,0.4,1.0,1.0,1.0,1.0,29.19,1.0,5
+Q11,semantic,What clean technology approaches help eliminate fossil fuel reliance across power grids?,Knowledge Graph,0.0,0.0,0.0,0.0,0.0,0.26,0.0,0
+Q11,semantic,What clean technology approaches help eliminate fossil fuel reliance across power grids?,Hybrid GraphRAG,0.4,1.0,1.0,0.8333,0.9197,29.36,1.0,5
+Q12,semantic,How does tropical deforestation compromise continental hydrological cycles and carbon storage?,TF-IDF,0.2,1.0,1.0,1.0,1.0,2.37,1.0,5
+Q12,semantic,How does tropical deforestation compromise continental hydrological cycles and carbon storage?,BM25,0.2,1.0,1.0,1.0,1.0,0.56,1.0,5
+Q12,semantic,How does tropical deforestation compromise continental hydrological cycles and carbon storage?,Dense Semantic,0.2,1.0,1.0,1.0,1.0,31.68,1.0,5
+Q12,semantic,How does tropical deforestation compromise continental hydrological cycles and carbon storage?,Knowledge Graph,0.0,0.0,0.0,0.0,0.0,0.1,0.0,0
+Q12,semantic,How does tropical deforestation compromise continental hydrological cycles and carbon storage?,Hybrid GraphRAG,0.2,1.0,1.0,1.0,1.0,28.77,1.0,5
+Q13,relational,What causal relationship exists between greenhouse gas emissions and extreme weather events?,TF-IDF,0.4,1.0,0.5,0.5833,1.0,2.46,0.75,5
+Q13,relational,What causal relationship exists between greenhouse gas emissions and extreme weather events?,BM25,0.4,1.0,1.0,1.0,1.0,0.57,1.0,5
+Q13,relational,What causal relationship exists between greenhouse gas emissions and extreme weather events?,Dense Semantic,0.4,1.0,1.0,1.0,1.0,29.61,1.0,5
+Q13,relational,What causal relationship exists between greenhouse gas emissions and extreme weather events?,Knowledge Graph,0.0,0.0,0.0,0.0,0.0,0.37,0.0,0
+Q13,relational,What causal relationship exists between greenhouse gas emissions and extreme weather events?,Hybrid GraphRAG,0.4,1.0,1.0,1.0,1.0,32.97,1.0,5
+Q14,relational,How does global warming affect water scarcity across South Asia and India?,TF-IDF,0.2,1.0,1.0,1.0,1.0,2.53,1.0,5
+Q14,relational,How does global warming affect water scarcity across South Asia and India?,BM25,0.2,1.0,1.0,1.0,1.0,0.63,1.0,5
+Q14,relational,How does global warming affect water scarcity across South Asia and India?,Dense Semantic,0.0,0.0,0.0,0.0,0.0,27.38,1.0,5
+Q14,relational,How does global warming affect water scarcity across South Asia and India?,Knowledge Graph,0.0,0.0,0.0,0.0,0.0,2.43,1.0,5
+Q14,relational,How does global warming affect water scarcity across South Asia and India?,Hybrid GraphRAG,0.2,1.0,0.5,0.5,0.6309,29.15,1.0,5
+Q15,relational,Which international policy treaty recommends Nationally Determined Contributions (NDCs)?,TF-IDF,0.6,1.0,1.0,0.9167,1.0,2.78,1.0,5
+Q15,relational,Which international policy treaty recommends Nationally Determined Contributions (NDCs)?,BM25,0.6,1.0,1.0,0.9167,1.0,0.46,0.75,5
+Q15,relational,Which international policy treaty recommends Nationally Determined Contributions (NDCs)?,Dense Semantic,0.6,1.0,1.0,0.8667,1.0,28.72,1.0,5
+Q15,relational,Which international policy treaty recommends Nationally Determined Contributions (NDCs)?,Knowledge Graph,0.0,0.0,0.0,0.0,0.0,0.16,0.0,0
+Q15,relational,Which international policy treaty recommends Nationally Determined Contributions (NDCs)?,Hybrid GraphRAG,0.6,1.0,1.0,0.9167,1.0,25.71,1.0,5
+Q16,relational,What climate phenomenon causes sea level rise according to satellite and ocean measurements?,TF-IDF,0.4,1.0,1.0,1.0,1.0,2.43,1.0,5
+Q16,relational,What climate phenomenon causes sea level rise according to satellite and ocean measurements?,BM25,0.4,1.0,1.0,1.0,1.0,0.69,0.75,5
+Q16,relational,What climate phenomenon causes sea level rise according to satellite and ocean measurements?,Dense Semantic,0.4,1.0,1.0,1.0,1.0,26.28,1.0,5
+Q16,relational,What climate phenomenon causes sea level rise according to satellite and ocean measurements?,Knowledge Graph,0.0,0.0,0.0,0.0,0.0,0.79,1.0,4
+Q16,relational,What climate phenomenon causes sea level rise according to satellite and ocean measurements?,Hybrid GraphRAG,0.4,1.0,1.0,1.0,1.0,27.02,1.0,5
+Q17,relational,How is agricultural yield decline in India adapted through water conservation techniques?,TF-IDF,0.4,1.0,1.0,0.75,1.0,2.33,1.0,5
+Q17,relational,How is agricultural yield decline in India adapted through water conservation techniques?,BM25,0.2,1.0,1.0,1.0,1.0,0.55,1.0,5
+Q17,relational,How is agricultural yield decline in India adapted through water conservation techniques?,Dense Semantic,0.4,1.0,1.0,1.0,1.0,26.33,1.0,5
+Q17,relational,How is agricultural yield decline in India adapted through water conservation techniques?,Knowledge Graph,0.0,0.0,0.0,0.0,0.0,0.66,1.0,3
+Q17,relational,How is agricultural yield decline in India adapted through water conservation techniques?,Hybrid GraphRAG,0.4,1.0,1.0,0.75,1.0,25.98,1.0,5
+Q18,relational,What climate impact affects coral reefs in tropical oceans due to marine heatwaves?,TF-IDF,0.2,1.0,1.0,1.0,1.0,2.4,1.0,5
+Q18,relational,What climate impact affects coral reefs in tropical oceans due to marine heatwaves?,BM25,0.2,1.0,1.0,1.0,1.0,0.59,1.0,5
+Q18,relational,What climate impact affects coral reefs in tropical oceans due to marine heatwaves?,Dense Semantic,0.2,1.0,1.0,1.0,1.0,28.55,1.0,5
+Q18,relational,What climate impact affects coral reefs in tropical oceans due to marine heatwaves?,Knowledge Graph,0.2,1.0,1.0,1.0,1.0,0.78,1.0,5
+Q18,relational,What climate impact affects coral reefs in tropical oceans due to marine heatwaves?,Hybrid GraphRAG,0.2,1.0,1.0,1.0,1.0,28.93,1.0,5
+Q19,multi_hop,"How does carbon dioxide emission lead to agricultural yield decline in India, and what adaptation strategy is documented?",TF-IDF,0.2,0.5,1.0,0.5,0.6131,2.32,1.0,5
+Q19,multi_hop,"How does carbon dioxide emission lead to agricultural yield decline in India, and what adaptation strategy is documented?",BM25,0.6,1.0,1.0,0.8056,1.0,0.8,1.0,5
+Q19,multi_hop,"How does carbon dioxide emission lead to agricultural yield decline in India, and what adaptation strategy is documented?",Dense Semantic,0.4,1.0,0.5,0.45,0.6241,32.17,1.0,5
+Q19,multi_hop,"How does carbon dioxide emission lead to agricultural yield decline in India, and what adaptation strategy is documented?",Knowledge Graph,0.0,0.0,0.0,0.0,0.0,1.38,1.0,5
+Q19,multi_hop,"How does carbon dioxide emission lead to agricultural yield decline in India, and what adaptation strategy is documented?",Hybrid GraphRAG,0.4,1.0,1.0,1.0,1.0,30.85,1.0,5
+Q20,multi_hop,"Trace how industrial greenhouse gases cause coastal flooding, and identify recommended protective infrastructure.",TF-IDF,0.4,1.0,1.0,1.0,1.0,2.68,1.0,5
+Q20,multi_hop,"Trace how industrial greenhouse gases cause coastal flooding, and identify recommended protective infrastructure.",BM25,0.4,1.0,1.0,1.0,1.0,0.64,1.0,5
+Q20,multi_hop,"Trace how industrial greenhouse gases cause coastal flooding, and identify recommended protective infrastructure.",Dense Semantic,0.2,1.0,0.25,0.25,0.4307,34.3,1.0,5
+Q20,multi_hop,"Trace how industrial greenhouse gases cause coastal flooding, and identify recommended protective infrastructure.",Knowledge Graph,0.2,1.0,1.0,1.0,1.0,0.95,1.0,3
+Q20,multi_hop,"Trace how industrial greenhouse gases cause coastal flooding, and identify recommended protective infrastructure.",Hybrid GraphRAG,0.4,1.0,1.0,0.7,1.0,30.51,1.0,5
+Q21,multi_hop,"How does fossil fuel burning trigger water scarcity in India, and how can farming communities adapt?",TF-IDF,0.2,1.0,1.0,1.0,1.0,2.7,1.0,5
+Q21,multi_hop,"How does fossil fuel burning trigger water scarcity in India, and how can farming communities adapt?",BM25,0.2,1.0,1.0,1.0,1.0,0.95,1.0,5
+Q21,multi_hop,"How does fossil fuel burning trigger water scarcity in India, and how can farming communities adapt?",Dense Semantic,0.2,1.0,0.25,0.25,0.4307,32.47,1.0,5
+Q21,multi_hop,"How does fossil fuel burning trigger water scarcity in India, and how can farming communities adapt?",Knowledge Graph,0.0,0.0,0.0,0.0,0.0,0.51,0.0,1
+Q21,multi_hop,"How does fossil fuel burning trigger water scarcity in India, and how can farming communities adapt?",Hybrid GraphRAG,0.4,1.0,1.0,0.7,1.0,31.96,1.0,5
+Q22,multi_hop,Explain the link connecting methane emissions to extreme heatwaves and international synthesis by the IPCC.,TF-IDF,0.4,1.0,1.0,1.0,1.0,2.43,1.0,5
+Q22,multi_hop,Explain the link connecting methane emissions to extreme heatwaves and international synthesis by the IPCC.,BM25,0.4,1.0,1.0,1.0,1.0,0.68,1.0,5
+Q22,multi_hop,Explain the link connecting methane emissions to extreme heatwaves and international synthesis by the IPCC.,Dense Semantic,0.4,1.0,0.5,0.5,1.0,32.14,1.0,5
+Q22,multi_hop,Explain the link connecting methane emissions to extreme heatwaves and international synthesis by the IPCC.,Knowledge Graph,0.0,0.0,0.0,0.0,0.0,1.06,1.0,5
+Q22,multi_hop,Explain the link connecting methane emissions to extreme heatwaves and international synthesis by the IPCC.,Hybrid GraphRAG,0.4,1.0,1.0,0.8333,1.0,43.4,1.0,5
+Q23,multi_hop,Trace how Amazon deforestation intensifies global warming and subsequently affects global biodiversity loss.,TF-IDF,0.2,1.0,1.0,1.0,1.0,2.79,1.0,5
+Q23,multi_hop,Trace how Amazon deforestation intensifies global warming and subsequently affects global biodiversity loss.,BM25,0.2,1.0,1.0,1.0,1.0,0.62,1.0,5
+Q23,multi_hop,Trace how Amazon deforestation intensifies global warming and subsequently affects global biodiversity loss.,Dense Semantic,0.2,1.0,1.0,1.0,1.0,31.19,1.0,5
+Q23,multi_hop,Trace how Amazon deforestation intensifies global warming and subsequently affects global biodiversity loss.,Knowledge Graph,0.0,0.0,0.0,0.0,0.0,2.17,1.0,5
+Q23,multi_hop,Trace how Amazon deforestation intensifies global warming and subsequently affects global biodiversity loss.,Hybrid GraphRAG,0.2,1.0,0.25,0.25,0.4307,40.65,1.0,5
+Q24,multi_hop,"How does global warming affect agriculture in India, and what adaptation strategies are documented?",TF-IDF,0.4,1.0,1.0,1.0,1.0,2.26,1.0,5
+Q24,multi_hop,"How does global warming affect agriculture in India, and what adaptation strategies are documented?",BM25,0.4,1.0,1.0,1.0,1.0,0.63,1.0,5
+Q24,multi_hop,"How does global warming affect agriculture in India, and what adaptation strategies are documented?",Dense Semantic,0.4,1.0,1.0,0.8333,1.0,38.13,1.0,5
+Q24,multi_hop,"How does global warming affect agriculture in India, and what adaptation strategies are documented?",Knowledge Graph,0.0,0.0,0.0,0.0,0.0,2.25,1.0,5
+Q24,multi_hop,"How does global warming affect agriculture in India, and what adaptation strategies are documented?",Hybrid GraphRAG,0.4,1.0,1.0,0.7,1.0,38.04,1.0,5
+Q25,adaptation_mitigation,What adaptation strategies does the Indian Council of Agricultural Research (ICAR) recommend for drought resilience?,TF-IDF,0.4,1.0,1.0,0.75,1.0,3.05,1.0,5
+Q25,adaptation_mitigation,What adaptation strategies does the Indian Council of Agricultural Research (ICAR) recommend for drought resilience?,BM25,0.2,1.0,1.0,1.0,1.0,0.69,1.0,5
+Q25,adaptation_mitigation,What adaptation strategies does the Indian Council of Agricultural Research (ICAR) recommend for drought resilience?,Dense Semantic,0.4,1.0,1.0,1.0,1.0,47.47,1.0,5
+Q25,adaptation_mitigation,What adaptation strategies does the Indian Council of Agricultural Research (ICAR) recommend for drought resilience?,Knowledge Graph,0.0,0.0,0.0,0.0,0.0,0.69,1.0,3
+Q25,adaptation_mitigation,What adaptation strategies does the Indian Council of Agricultural Research (ICAR) recommend for drought resilience?,Hybrid GraphRAG,0.4,1.0,0.5,0.5,1.0,40.12,1.0,5
+Q26,adaptation_mitigation,How do solar energy and wind power serve as primary mitigation strategies according to UNEP?,TF-IDF,0.6,1.0,1.0,0.8667,1.0,2.66,1.0,5
+Q26,adaptation_mitigation,How do solar energy and wind power serve as primary mitigation strategies according to UNEP?,BM25,0.6,1.0,1.0,0.8667,1.0,0.84,1.0,5
+Q26,adaptation_mitigation,How do solar energy and wind power serve as primary mitigation strategies according to UNEP?,Dense Semantic,0.4,1.0,1.0,0.8333,1.0,36.88,1.0,5
+Q26,adaptation_mitigation,How do solar energy and wind power serve as primary mitigation strategies according to UNEP?,Knowledge Graph,0.0,0.0,0.0,0.0,0.0,0.95,1.0,4
+Q26,adaptation_mitigation,How do solar energy and wind power serve as primary mitigation strategies according to UNEP?,Hybrid GraphRAG,0.4,1.0,1.0,1.0,1.0,41.72,1.0,5
+Q27,adaptation_mitigation,What is the role of afforestation and reforestation in biological carbon sequestration?,TF-IDF,0.6,1.0,1.0,0.8667,1.0,2.44,1.0,5
+Q27,adaptation_mitigation,What is the role of afforestation and reforestation in biological carbon sequestration?,BM25,0.4,1.0,1.0,1.0,1.0,0.56,1.0,5
+Q27,adaptation_mitigation,What is the role of afforestation and reforestation in biological carbon sequestration?,Dense Semantic,0.4,1.0,1.0,1.0,1.0,37.86,1.0,5
+Q27,adaptation_mitigation,What is the role of afforestation and reforestation in biological carbon sequestration?,Knowledge Graph,0.0,0.0,0.0,0.0,0.0,0.28,0.0,0
+Q27,adaptation_mitigation,What is the role of afforestation and reforestation in biological carbon sequestration?,Hybrid GraphRAG,0.4,1.0,1.0,0.8333,0.9197,35.11,1.0,5
+Q28,adaptation_mitigation,How does rainwater harvesting assist climate adaptation in drought-prone agrarian regions?,TF-IDF,0.4,1.0,1.0,1.0,1.0,2.59,1.0,5
+Q28,adaptation_mitigation,How does rainwater harvesting assist climate adaptation in drought-prone agrarian regions?,BM25,0.4,1.0,1.0,1.0,1.0,0.53,1.0,5
+Q28,adaptation_mitigation,How does rainwater harvesting assist climate adaptation in drought-prone agrarian regions?,Dense Semantic,0.4,1.0,1.0,1.0,1.0,43.74,1.0,5
+Q28,adaptation_mitigation,How does rainwater harvesting assist climate adaptation in drought-prone agrarian regions?,Knowledge Graph,0.0,0.0,0.0,0.0,0.0,0.78,1.0,3
+Q28,adaptation_mitigation,How does rainwater harvesting assist climate adaptation in drought-prone agrarian regions?,Hybrid GraphRAG,0.4,1.0,0.5,0.5833,1.0,38.03,1.0,5
+Q29,adaptation_mitigation,What early warning systems are implemented to reduce vulnerability to extreme heatwaves?,TF-IDF,0.6,1.0,1.0,0.9167,1.0,2.65,1.0,5
+Q29,adaptation_mitigation,What early warning systems are implemented to reduce vulnerability to extreme heatwaves?,BM25,0.6,1.0,1.0,0.9167,1.0,0.59,1.0,5
+Q29,adaptation_mitigation,What early warning systems are implemented to reduce vulnerability to extreme heatwaves?,Dense Semantic,0.4,1.0,0.3333,0.4167,0.5706,40.61,1.0,5
+Q29,adaptation_mitigation,What early warning systems are implemented to reduce vulnerability to extreme heatwaves?,Knowledge Graph,0.0,0.0,0.0,0.0,0.0,0.63,0.0,3
+Q29,adaptation_mitigation,What early warning systems are implemented to reduce vulnerability to extreme heatwaves?,Hybrid GraphRAG,0.6,1.0,1.0,0.8667,1.0,31.38,1.0,5
+Q30,adaptation_mitigation,How does the National Action Plan on Climate Change (NAPCC) support adaptation and mitigation in India?,TF-IDF,0.2,1.0,1.0,1.0,1.0,2.68,1.0,5
+Q30,adaptation_mitigation,How does the National Action Plan on Climate Change (NAPCC) support adaptation and mitigation in India?,BM25,0.2,1.0,1.0,1.0,1.0,0.83,1.0,5
+Q30,adaptation_mitigation,How does the National Action Plan on Climate Change (NAPCC) support adaptation and mitigation in India?,Dense Semantic,0.2,1.0,1.0,1.0,1.0,36.75,1.0,5
+Q30,adaptation_mitigation,How does the National Action Plan on Climate Change (NAPCC) support adaptation and mitigation in India?,Knowledge Graph,0.0,0.0,0.0,0.0,0.0,1.09,1.0,5
+Q30,adaptation_mitigation,How does the National Action Plan on Climate Change (NAPCC) support adaptation and mitigation in India?,Hybrid GraphRAG,0.2,1.0,0.3333,0.3333,0.5,33.83,1.0,5
+Q31,adaptation_mitigation,What coastal defenses can protect vulnerable low-lying regions against sea level rise?,TF-IDF,0.4,1.0,1.0,1.0,1.0,2.79,0.75,5
+Q31,adaptation_mitigation,What coastal defenses can protect vulnerable low-lying regions against sea level rise?,BM25,0.4,1.0,1.0,1.0,1.0,0.56,1.0,5
+Q31,adaptation_mitigation,What coastal defenses can protect vulnerable low-lying regions against sea level rise?,Dense Semantic,0.4,1.0,1.0,1.0,1.0,30.64,0.75,5
+Q31,adaptation_mitigation,What coastal defenses can protect vulnerable low-lying regions against sea level rise?,Knowledge Graph,0.0,0.0,0.0,0.0,0.0,0.81,1.0,4
+Q31,adaptation_mitigation,What coastal defenses can protect vulnerable low-lying regions against sea level rise?,Hybrid GraphRAG,0.4,1.0,1.0,1.0,1.0,39.18,1.0,5
+Q32,adaptation_mitigation,What is the role of Carbon Capture and Storage (CCS) in industrial mitigation?,TF-IDF,0.2,1.0,1.0,1.0,1.0,2.63,1.0,5
+Q32,adaptation_mitigation,What is the role of Carbon Capture and Storage (CCS) in industrial mitigation?,BM25,0.2,1.0,1.0,1.0,1.0,0.6,1.0,5
+Q32,adaptation_mitigation,What is the role of Carbon Capture and Storage (CCS) in industrial mitigation?,Dense Semantic,0.2,1.0,1.0,1.0,1.0,42.43,1.0,5
+Q32,adaptation_mitigation,What is the role of Carbon Capture and Storage (CCS) in industrial mitigation?,Knowledge Graph,0.0,0.0,0.0,0.0,0.0,0.31,0.0,0
+Q32,adaptation_mitigation,What is the role of Carbon Capture and Storage (CCS) in industrial mitigation?,Hybrid GraphRAG,0.2,1.0,1.0,1.0,1.0,40.18,1.0,5
