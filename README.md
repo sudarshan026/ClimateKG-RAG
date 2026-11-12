@@ -136,7 +136,7 @@
 ### 2. Clone and Setup Environment
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/ClimateKG-RAG.git
+git clone https://github.com/sudarshan026/ClimateKG-RAG.git
 cd ClimateKG-RAG
 
 # Create virtual environment
