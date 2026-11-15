@@ -135,3 +135,31 @@ The system was evaluated using the 32-query `CLIMATE_BENCHMARK_QUERIES` benchmar
 - Offline Safety: Hugging Face model caching with `HF_HUB_OFFLINE=1` guarantees reliable laptop execution without internet access.
 - Test Coverage: 31 unit and integration tests across document extraction, chunking, graph consistency on deletion, 5 retrieval engines, RRF deduplication, QA evidence grounding, evaluation metric invariants, and graph persistence.
 
+
+
+---
+
+## 6. Modern Web Platform Architecture (v2.0)
+
+To overcome the performance and UI constraints of conventional prototyping frameworks, ClimateKG-RAG was upgraded to an asynchronous FastAPI backend serving a responsive, dark glassmorphism Single Page Application:
+
+1. **High-Performance Asynchronous Backend (`server.py`):**
+   - Built on FastAPI and Uvicorn with native ASGI concurrency.
+   - Comprehensive REST API endpoints for telemetry, document chunk inspection, Knowledge Graph querying, multi-hop traversal, causal pathfinding, Q&A synthesis, and multi-paradigm comparison.
+   - OpenAPI / Swagger documentation auto-generated at `/docs`.
+
+2. **Interactive Knowledge Graph 2.0 (`static/js/app.js`):**
+   - High-performance physics simulation utilizing Vis.js Network.
+   - Dynamic filtering across all 10 domain entity classes with custom color schemes.
+   - Live entity search with camera auto-focus and bounding box zoom.
+   - Inspector drawer revealing source document titles, page provenance, and verbatim evidence excerpts.
+   - Automated **Causal Path Discovery Engine** computing shortest causal paths between user-selected climate phenomena, impacts, and adaptation strategies.
+
+3. **Evidence-Grounded Q&A Studio:**
+   - Markdown rendering with interactive citation badges (`[1]`, `[2]`).
+   - One-click source provenance drawer highlighting verbatim text passages and chunk metadata.
+   - Multi-hop causal graph pathways visualizer displayed alongside synthesized answers.
+
+4. **Multi-Paradigm Comparison Lab:**
+   - Real-time side-by-side execution across TF-IDF, Okapi BM25, Dense Semantic, Knowledge Graph Traversal, and Hybrid GraphRAG.
+   - Detailed latency breakdown and ranked passage comparisons.

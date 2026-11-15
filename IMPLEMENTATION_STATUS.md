@@ -28,7 +28,7 @@ ClimateKG-RAG has been thoroughly audited, debugged, and validated. All core and
 | **Information Retrieval: Hybrid GraphRAG** | ✅ Complete | Reciprocal Rank Fusion ($k=60$) combining BM25 ($w=1.0$), Dense ($w=1.2$), and Graph ($w=1.5$). Strict chunk deduplication and graph metadata unification. |
 | **Evidence-Grounded QA** | ✅ Complete | `GroundedAnswerGenerator` synthesizes answers strictly from retrieved passages and graph paths. Generates verifiable citations (`[Doc Title, Filename, Page X, Chunk Y]`). Returns "Insufficient Evidence" when query cannot be proven by retrieved corpus. |
 | **Evaluation Suite & Metrics** | ✅ Complete | Mathematically sound metrics: Precision@K, Recall@K, MRR, MAP (strictly $\le 1.0$), NDCG@K, Latency (ms), and Claim-Level Evidence Support Rate. 32 curated benchmark queries with explicit ground truth. Exported CSV reports. |
-| **Streamlit User Interface** | ✅ Complete | 7 responsive tabs: Home/Overview, Document Management, Knowledge Graph Explorer, Climate QA, Retrieval Comparison, Evaluation Dashboard, and System Configuration. PyVis interactive network visualization and Plotly charts. |
+| **Web Application & UI (v2.0)** | ✅ Complete | **FastAPI + Modern SPA (v2.0)**: Zero-reload glassmorphism interface with 7 modules (Overview & Pipeline, Q&A Studio with clickable citations `[1]`, Vis.js Knowledge Graph 2.0 with Causal Path Tracer, Multi-Paradigm Comparison Lab, Chart.js Benchmark Hub, Document Repository with Chunk Inspector, and Diagnostics). Optional legacy Streamlit interface retained in `app.py`. |
 | **Automated Testing** | ✅ Complete | 31 comprehensive unit and end-to-end integration tests passing under `pytest`. |
 
 ---
@@ -102,9 +102,11 @@ python scripts/run_evaluation.py
 python -m pytest tests/ -v
 ```
 
-### Launch Interactive Web Application
+### Launch Modern Web Application (Recommended)
 ```bash
-python -m streamlit run app.py
+python server.py
 ```
-Application interface will be reachable at `http://localhost:8501`.
+*(Or double-click `run_app.bat` on Windows)*  
+Application interface reachable at `http://localhost:8000` (API docs at `http://localhost:8000/docs`).  
+*(Optional Legacy Streamlit: `streamlit run app.py` at `http://localhost:8501`)*
 
