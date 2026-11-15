@@ -185,11 +185,15 @@ Runs all 31 unit and integration tests:
 pytest tests/ -v
 ```
 
-### Launch the Streamlit Web Application
+### Launch the Modern Web Application (Recommended)
 ```bash
-streamlit run app.py
+python server.py
 ```
-Open your browser at: `http://localhost:8501`
+*(Or double-click `run_app.bat` on Windows)*  
+Open your browser at: **`http://localhost:8000`**  
+Interactive OpenAPI / Swagger docs: **`http://localhost:8000/docs`**
+
+*(Optional Legacy Streamlit Interface: `streamlit run app.py` at `http://localhost:8501`)*
 
 ---
 

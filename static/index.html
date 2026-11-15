@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClimateKG-RAG | Multi-Paradigm Knowledge Discovery</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#ecfdf5',
+              100: '#d1fae5',
+              400: '#34d399',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+              900: '#064e3b',
+            },
+            surface: {
+              DEFAULT: '#0f172a',
+              card: '#1e293b',
+              border: '#334155',
+              subtle: '#090d16',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Vis.js Network for interactive Graph -->
+  <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+  
+  <!-- Chart.js for Evaluation Charts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Marked.js for Markdown Rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body class="bg-surface-subtle text-slate-100 font-sans antialiased min-h-screen flex flex-col">
+
+  <!-- Top Navigation & Telemetry Bar -->
+  <header class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800 px-6 py-3 flex items-center justify-between">
+    <div class="flex items-center space-x-3">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-400 flex items-center justify-center shadow-lg shadow-emerald-500/20">
+        <i data-lucide="globe" class="w-6 h-6 text-white"></i>
+      </div>
+      <div>
+        <div class="flex items-center space-x-2">
+          <h1 class="text-lg font-bold tracking-tight text-white">ClimateKG-RAG</h1>
+          <span class="px-2 py-0.5 text-xs font-semibold bg-emerald-900/70 text-emerald-400 border border-emerald-700/50 rounded-full">UN SDG 13</span>
+        </div>
+        <p class="text-xs text-slate-400">Hybrid Knowledge Graph & Multi-Paradigm Information Retrieval</p>
+      </div>
+    </div>
+
+    <!-- Live Telemetry Badges -->
+    <div class="hidden lg:flex items-center space-x-3 text-xs">
+      <div class="bg-slate-800/80 px-3 py-1.5 rounded-lg border border-slate-700/60 flex items-center space-x-2">
+        <i data-lucide="file-text" class="w-3.5 h-3.5 text-blue-400"></i>
+        <span class="text-slate-400">Docs:</span>
+        <span id="topDocsCount" class="font-semibold text-white">8</span>
+      </div>
+      <div class="bg-slate-800/80 px-3 py-1.5 rounded-lg border border-slate-700/60 flex items-center space-x-2">
+        <i data-lucide="layers" class="w-3.5 h-3.5 text-indigo-400"></i>
+        <span class="text-slate-400">Chunks:</span>
+        <span id="topChunksCount" class="font-semibold text-white">14</span>
+      </div>
+      <div class="bg-slate-800/80 px-3 py-1.5 rounded-lg border border-slate-700/60 flex items-center space-x-2">
+        <i data-lucide="network" class="w-3.5 h-3.5 text-emerald-400"></i>
+        <span class="text-slate-400">Entities:</span>
+        <span id="topEntitiesCount" class="font-semibold text-white">35</span>
+      </div>
+      <div class="bg-slate-800/80 px-3 py-1.5 rounded-lg border border-slate-700/60 flex items-center space-x-2">
+        <i data-lucide="git-fork" class="w-3.5 h-3.5 text-amber-400"></i>
+        <span class="text-slate-400">Relations:</span>
+        <span id="topEdgesCount" class="font-semibold text-white">20</span>
+      </div>
+      <div id="neo4jStatusBadge" class="bg-slate-800/80 px-3 py-1.5 rounded-lg border border-slate-700/60 flex items-center space-x-1.5 text-slate-300">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span>NetworkX Graph (Ready)</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Workspace Layout -->
+  <div class="flex-1 flex overflow-hidden">
+
+    <!-- Sidebar Navigation -->
+    <aside class="w-64 bg-slate-900 border-r border-slate-800 p-4 flex flex-col justify-between shrink-0">
+      <nav class="space-y-1.5">
+        <button onclick="switchTab('overview')" class="nav-tab active w-full flex items-center space-x-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition" data-tab="overview">
+          <i data-lucide="layout-dashboard" class="w-4 h-4"></i>
+          <span>1. Overview & Pipeline</span>
+        </button>
+        <button onclick="switchTab('qa')" class="nav-tab w-full flex items-center space-x-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition" data-tab="qa">
+          <i data-lucide="message-square-text" class="w-4 h-4"></i>
+          <span>2. Climate Q&A Studio</span>
+        </button>
+        <button onclick="switchTab('graph')" class="nav-tab w-full flex items-center space-x-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition" data-tab="graph">
+          <i data-lucide="share-2" class="w-4 h-4"></i>
+          <span>3. Knowledge Graph</span>
+        </button>
+        <button onclick="switchTab('compare')" class="nav-tab w-full flex items-center space-x-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition" data-tab="compare">
+          <i data-lucide="git-compare" class="w-4 h-4"></i>
+          <span>4. Multi-Paradigm Lab</span>
+        </button>
+        <button onclick="switchTab('benchmark')" class="nav-tab w-full flex items-center space-x-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition" data-tab="benchmark">
+          <i data-lucide="line-chart" class="w-4 h-4"></i>
+          <span>5. Benchmark Hub</span>
+        </button>
+        <button onclick="switchTab('documents')" class="nav-tab w-full flex items-center space-x-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition" data-tab="documents">
+          <i data-lucide="folder-git-2" class="w-4 h-4"></i>
+          <span>6. Document Library</span>
+        </button>
+        <button onclick="switchTab('diagnostics')" class="nav-tab w-full flex items-center space-x-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition" data-tab="diagnostics">
+          <i data-lucide="cpu" class="w-4 h-4"></i>
+          <span>7. System Diagnostics</span>
+        </button>
+      </nav>
+
+      <!-- Bottom Card in Sidebar -->
+      <div class="bg-slate-800/60 border border-slate-700/50 rounded-xl p-3.5 text-xs text-slate-400 space-y-2">
+        <div class="flex items-center justify-between text-slate-300 font-semibold">
+          <span>Engine Status</span>
+          <span class="text-emerald-400 font-mono">100% Offline</span>
+        </div>
+        <p class="leading-relaxed">Hybrid GraphRAG combines BM25 lexical precision, Dense semantics & 2-hop causal graph pathways.</p>
+        <div class="pt-1 border-t border-slate-700/40 flex justify-between text-[11px]">
+          <span>UN SDG 13 Action</span>
+          <span class="text-slate-300">v2.0.0</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 overflow-y-auto p-6 lg:p-8 space-y-8">
+
+      <!-- ================================================================= -->
+      <!-- TAB 1: OVERVIEW & PIPELINE -->
+      <!-- ================================================================= -->
+      <section id="tab-overview" class="tab-pane active space-y-8">
+        <!-- Hero Header -->
+        <div class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-slate-900 via-slate-800 to-emerald-950/40 border border-slate-700/60 p-8 shadow-xl">
+          <div class="max-w-3xl space-y-4">
+            <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold">
+              <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+              <span>Next-Generation GraphRAG for Climate Science Discovery</span>
+            </div>
+            <h2 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+              Understand Climate Change Through Grounded Evidence & Causal Graphs
+            </h2>
+            <p class="text-slate-300 text-sm leading-relaxed">
+              Standard vector RAG fails on multi-hop causal reasoning (e.g., <em>GHG emissions &rarr; extreme warming &rarr; drought &rarr; crop yield decline &rarr; drip irrigation</em>) and hallucinates citations. <strong>ClimateKG-RAG</strong> unifies 10-node Knowledge Graph reasoning with Okapi BM25 and Dense Semantic Retrieval, guaranteeing strict citation provenance.
+            </p>
+            <div class="flex flex-wrap gap-3 pt-2">
+              <button onclick="switchTab('qa')" class="btn-primary px-5 py-2.5 rounded-xl font-medium text-sm flex items-center space-x-2 shadow-lg shadow-emerald-600/30">
+                <i data-lucide="play" class="w-4 h-4"></i>
+                <span>Launch Q&A Studio</span>
+              </button>
+              <button onclick="switchTab('graph')" class="btn-secondary px-5 py-2.5 rounded-xl font-medium text-sm flex items-center space-x-2">
+                <i data-lucide="network" class="w-4 h-4"></i>
+                <span>Explore Knowledge Graph</span>
+              </button>
+              <button onclick="switchTab('benchmark')" class="btn-secondary px-5 py-2.5 rounded-xl font-medium text-sm flex items-center space-x-2">
+                <i data-lucide="bar-chart-3" class="w-4 h-4"></i>
+                <span>View 32-Query Benchmark</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Metric Stat Cards -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div class="stat-card">
+            <div class="text-slate-400 text-xs font-medium uppercase tracking-wider">Indexed Documents</div>
+            <div id="statDocCount" class="text-3xl font-extrabold text-white mt-1">8</div>
+            <div class="text-xs text-slate-400 mt-1 flex items-center space-x-1">
+              <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-400"></i>
+              <span>IPCC, UNFCCC, ICAR, WMO</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="text-slate-400 text-xs font-medium uppercase tracking-wider">Processed Chunks</div>
+            <div id="statChunkCount" class="text-3xl font-extrabold text-white mt-1">14</div>
+            <div class="text-xs text-slate-400 mt-1 flex items-center space-x-1">
+              <i data-lucide="layers" class="w-3.5 h-3.5 text-blue-400"></i>
+              <span>Sentence-Boundary Cleaned</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="text-slate-400 text-xs font-medium uppercase tracking-wider">Knowledge Graph Entities</div>
+            <div id="statNodeCount" class="text-3xl font-extrabold text-white mt-1">35</div>
+            <div class="text-xs text-slate-400 mt-1 flex items-center space-x-1">
+              <i data-lucide="tag" class="w-3.5 h-3.5 text-indigo-400"></i>
+              <span>10 Climate Schema Types</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="text-slate-400 text-xs font-medium uppercase tracking-wider">Evidence-Backed Edges</div>
+            <div id="statEdgeCount" class="text-3xl font-extrabold text-white mt-1">20</div>
+            <div class="text-xs text-slate-400 mt-1 flex items-center space-x-1">
+              <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-400"></i>
+              <span>99.2% Evidence Support</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive 5-Stage Architecture Flowchart -->
+        <div class="bg-surface-card border border-surface-border rounded-2xl p-6 space-y-6">
+          <div class="flex items-center justify-between">
+            <div>
+              <h3 class="text-lg font-bold text-white flex items-center space-x-2">
+                <i data-lucide="workflow" class="w-5 h-5 text-emerald-400"></i>
+                <span>How ClimateKG-RAG Works: End-to-End Architecture</span>
+              </h3>
+              <p class="text-xs text-slate-400">Click any stage to understand how raw climate research transforms into grounded answers.</p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-5 gap-3">
+            <div class="pipeline-step active cursor-pointer p-4 rounded-xl border transition" onclick="showPipelineDetail(1)">
+              <div class="flex items-center justify-between text-xs text-slate-400 mb-2">
+                <span>Stage 1</span>
+                <i data-lucide="file-up" class="w-4 h-4 text-emerald-400"></i>
+              </div>
+              <h4 class="font-semibold text-sm text-white">Multi-Format Ingestion</h4>
+              <p class="text-xs text-slate-400 mt-1">PyMuPDF & python-docx with sentence chunking & SHA-256 deduplication.</p>
+            </div>
+            <div class="pipeline-step cursor-pointer p-4 rounded-xl border transition" onclick="showPipelineDetail(2)">
+              <div class="flex items-center justify-between text-xs text-slate-400 mb-2">
+                <span>Stage 2</span>
+                <i data-lucide="git-commit" class="w-4 h-4 text-emerald-400"></i>
+              </div>
+              <h4 class="font-semibold text-sm text-white">Graph Construction</h4>
+              <p class="text-xs text-slate-400 mt-1">10 Node Types & 8 Relation Types with exact sentence excerpt provenance.</p>
+            </div>
+            <div class="pipeline-step cursor-pointer p-4 rounded-xl border transition" onclick="showPipelineDetail(3)">
+              <div class="flex items-center justify-between text-xs text-slate-400 mb-2">
+                <span>Stage 3</span>
+                <i data-lucide="search" class="w-4 h-4 text-emerald-400"></i>
+              </div>
+              <h4 class="font-semibold text-sm text-white">Tri-Index Storage</h4>
+              <p class="text-xs text-slate-400 mt-1">TF-IDF matrix + BM25 index + all-MiniLM dense vector disk cache.</p>
+            </div>
+            <div class="pipeline-step cursor-pointer p-4 rounded-xl border transition" onclick="showPipelineDetail(4)">
+              <div class="flex items-center justify-between text-xs text-slate-400 mb-2">
+                <span>Stage 4</span>
+                <i data-lucide="shuffle" class="w-4 h-4 text-emerald-400"></i>
+              </div>
+              <h4 class="font-semibold text-sm text-white">Reciprocal Rank Fusion</h4>
+              <p class="text-xs text-slate-400 mt-1">Score(d) = &Sigma; w / (60 + Rank) fusing lexical, dense, and graph paths.</p>
+            </div>
+            <div class="pipeline-step cursor-pointer p-4 rounded-xl border transition" onclick="showPipelineDetail(5)">
+              <div class="flex items-center justify-between text-xs text-slate-400 mb-2">
+                <span>Stage 5</span>
+                <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400"></i>
+              </div>
+              <h4 class="font-semibold text-sm text-white">Grounded Synthesis</h4>
+              <p class="text-xs text-slate-400 mt-1">Verifiable citations [Doc, Page, Chunk] with zero unsupported claims.</p>
+            </div>
+          </div>
+
+          <!-- Dynamic Pipeline Explainer Detail Box -->
+          <div id="pipelineDetailBox" class="bg-slate-900/80 border border-slate-800 rounded-xl p-5 text-sm text-slate-300">
+            <h4 class="font-bold text-white text-base mb-1" id="pipelineDetailTitle">Stage 1: Multi-Format Document Ingestion</h4>
+            <p id="pipelineDetailDesc">The ingestion engine parses PDF, DOCX, and TXT research publications. It cleans noisy formatting while preserving sentence boundaries to avoid splitting scientific findings across chunks. Each chunk is tagged with its parent Document ID, page number, and SHA-256 content hash to detect and prevent duplicate content.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================= -->
+      <!-- TAB 2: CLIMATE Q&A STUDIO -->
+      <!-- ================================================================= -->
+      <section id="tab-qa" class="tab-pane space-y-6">
+        <div>
+          <h2 class="text-2xl font-bold text-white flex items-center space-x-2">
+            <i data-lucide="message-square-text" class="w-6 h-6 text-emerald-400"></i>
+            <span>Climate Question Answering Studio</span>
+          </h2>
+          <p class="text-sm text-slate-400">Query the ingested climate corpus. Responses are synthesized with strict citation grounding and causal graph pathways.</p>
+        </div>
+
+        <!-- Preset Query Pills -->
+        <div class="space-y-2">
+          <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Quick Sample Climate Queries:</div>
+          <div class="flex flex-wrap gap-2">
+            <button onclick="setQuery(this.innerText)" class="query-pill">How does global warming affect agriculture in India, and what adaptation strategies are documented?</button>
+            <button onclick="setQuery(this.innerText)" class="query-pill">What causal relationship exists between greenhouse gas emissions and extreme weather events?</button>
+            <button onclick="setQuery(this.innerText)" class="query-pill">What adaptation strategies does ICAR recommend for drought resilience?</button>
+            <button onclick="setQuery(this.innerText)" class="query-pill">What global temperature threshold does the Paris Agreement aim to hold global warming well below?</button>
+            <button onclick="setQuery(this.innerText)" class="query-pill">How does carbon dioxide emission lead to agricultural yield decline in India?</button>
+          </div>
+        </div>
+
+        <!-- Query Input Card -->
+        <div class="bg-surface-card border border-surface-border rounded-2xl p-6 space-y-5">
+          <div class="relative">
+            <input id="qaInput" type="text" placeholder="Enter your climate research question (e.g. What mitigation strategies exist for CO2 emissions?)..." 
+              class="w-full bg-slate-900 border border-slate-700 rounded-xl px-5 py-4 text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition">
+          </div>
+
+          <!-- Retrieval Method Selector -->
+          <div class="space-y-2">
+            <label class="text-xs font-medium text-slate-400 uppercase tracking-wider">Select Retrieval Paradigm:</label>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
+              <label class="method-card active cursor-pointer p-3.5 rounded-xl border text-center transition flex flex-col justify-between">
+                <input type="radio" name="retrievalMethod" value="hybrid" checked class="hidden">
+                <div class="font-semibold text-xs text-white">Hybrid GraphRAG</div>
+                <div class="text-[10px] text-emerald-400 mt-1 font-medium">&starf; Recommended (RRF)</div>
+              </label>
+              <label class="method-card cursor-pointer p-3.5 rounded-xl border text-center transition flex flex-col justify-between">
+                <input type="radio" name="retrievalMethod" value="dense" class="hidden">
+                <div class="font-semibold text-xs text-white">Dense Semantic</div>
+                <div class="text-[10px] text-slate-400 mt-1">all-MiniLM-L6-v2</div>
+              </label>
+              <label class="method-card cursor-pointer p-3.5 rounded-xl border text-center transition flex flex-col justify-between">
+                <input type="radio" name="retrievalMethod" value="bm25" class="hidden">
+                <div class="font-semibold text-xs text-white">Okapi BM25</div>
+                <div class="text-[10px] text-slate-400 mt-1">Lexical Keyword Match</div>
+              </label>
+              <label class="method-card cursor-pointer p-3.5 rounded-xl border text-center transition flex flex-col justify-between">
+                <input type="radio" name="retrievalMethod" value="graph" class="hidden">
+                <div class="font-semibold text-xs text-white">Knowledge Graph</div>
+                <div class="text-[10px] text-slate-400 mt-1">Multi-Hop Traversal</div>
+              </label>
+              <label class="method-card cursor-pointer p-3.5 rounded-xl border text-center transition flex flex-col justify-between">
+                <input type="radio" name="retrievalMethod" value="tfidf" class="hidden">
+                <div class="font-semibold text-xs text-white">TF-IDF</div>
+                <div class="text-[10px] text-slate-400 mt-1">Sublinear Term Freq</div>
+              </label>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between pt-2">
+            <div class="flex items-center space-x-3 text-xs text-slate-400">
+              <span>Top-K Passages:</span>
+              <input id="topKSlider" type="range" min="1" max="10" value="5" class="accent-emerald-500 w-24">
+              <span id="topKValue" class="font-mono text-white font-bold">5</span>
+            </div>
+            <button onclick="executeQA()" id="qaSubmitBtn" class="btn-primary px-6 py-3 rounded-xl font-semibold text-sm flex items-center space-x-2 shadow-lg shadow-emerald-600/30">
+              <i data-lucide="send" class="w-4 h-4"></i>
+              <span>Synthesize Grounded Answer</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- QA Results Container -->
+        <div id="qaResultsContainer" class="hidden space-y-6">
+          <!-- Answer Card -->
+          <div class="bg-surface-card border border-emerald-500/30 rounded-2xl p-6 space-y-4 shadow-xl">
+            <div class="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-slate-700/60">
+              <div class="flex items-center space-x-2">
+                <div class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
+                  <i data-lucide="check-check" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <h3 class="font-bold text-white text-base">Grounded Scientific Synthesis</h3>
+                  <div class="text-xs text-slate-400" id="qaMetaEngine">Synthesized by Deterministic Engine | Method: Hybrid GraphRAG</div>
+                </div>
+              </div>
+              <div class="flex items-center space-x-3 text-xs">
+                <span id="qaConfidenceBadge" class="px-2.5 py-1 rounded-full bg-emerald-900/60 text-emerald-400 border border-emerald-700/50 font-semibold">Confidence: High</span>
+                <span id="qaLatencyBadge" class="px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 font-mono">⏱️ 12.4 ms</span>
+              </div>
+            </div>
+
+            <!-- Answer Body -->
+            <div id="qaAnswerText" class="prose prose-invert max-w-none text-slate-200 text-sm leading-relaxed space-y-3"></div>
+
+            <!-- Discovered Graph Pathways -->
+            <div id="qaGraphPathsSection" class="pt-3 border-t border-slate-800 space-y-2">
+              <h4 class="text-xs font-semibold uppercase tracking-wider text-slate-400 flex items-center space-x-1.5">
+                <i data-lucide="git-merge" class="w-4 h-4 text-emerald-400"></i>
+                <span>Knowledge Graph Discovered Causal Pathways:</span>
+              </h4>
+              <div id="qaGraphPathsList" class="flex flex-wrap gap-2"></div>
+            </div>
+          </div>
+
+          <!-- Citations & Verified Sources Accordion -->
+          <div class="bg-surface-card border border-surface-border rounded-2xl p-6 space-y-4">
+            <h3 class="text-base font-bold text-white flex items-center space-x-2">
+              <i data-lucide="book-open-check" class="w-5 h-5 text-blue-400"></i>
+              <span>Verified Document Citations & Provenance</span>
+            </h3>
+            <div id="qaCitationsList" class="space-y-3"></div>
+          </div>
+
+          <!-- Ranked Retrieved Passages -->
+          <div class="bg-surface-card border border-surface-border rounded-2xl p-6 space-y-4">
+            <h3 class="text-base font-bold text-white flex items-center space-x-2">
+              <i data-lucide="list-ordered" class="w-5 h-5 text-indigo-400"></i>
+              <span>Ranked Retrieval Passages</span>
+            </h3>
+            <div id="qaRankedResultsList" class="space-y-2"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================= -->
+      <!-- TAB 3: KNOWLEDGE GRAPH EXPLORER -->
+      <!-- ================================================================= -->
+      <section id="tab-graph" class="tab-pane space-y-6">
+        <div class="flex flex-wrap items-center justify-between gap-4">
+          <div>
+            <h2 class="text-2xl font-bold text-white flex items-center space-x-2">
+              <i data-lucide="share-2" class="w-6 h-6 text-emerald-400"></i>
+              <span>Climate Knowledge Graph Explorer</span>
+            </h2>
+            <p class="text-sm text-slate-400">Physics-simulated network graph with 10 Node Types, 8 Relation Types, and exact evidence excerpts.</p>
+          </div>
+          <div class="flex items-center space-x-3 text-xs">
+            <button onclick="resetGraphPhysics()" class="btn-secondary px-3.5 py-2 rounded-xl flex items-center space-x-1.5">
+              <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>
+              <span>Reset Physics</span>
+            </button>
+            <button onclick="fitGraphView()" class="btn-secondary px-3.5 py-2 rounded-xl flex items-center space-x-1.5">
+              <i data-lucide="maximize" class="w-3.5 h-3.5"></i>
+              <span>Fit View</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Filter & Search Controls Bar -->
+        <div class="bg-surface-card border border-surface-border rounded-2xl p-5 space-y-4">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="space-y-1">
+              <label class="text-xs font-semibold text-slate-400 uppercase">Search Entity Node:</label>
+              <div class="relative">
+                <input id="graphSearchInput" type="text" placeholder="e.g. India, Solar Energy, Drought..." 
+                  class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500">
+              </div>
+            </div>
+            <div class="space-y-1">
+              <label class="text-xs font-semibold text-slate-400 uppercase">Max Nodes Visualized:</label>
+              <div class="flex items-center space-x-3 pt-2">
+                <input id="graphMaxNodes" type="range" min="15" max="120" value="60" class="accent-emerald-500 w-full">
+                <span id="graphMaxNodesVal" class="text-xs font-mono font-bold text-white">60</span>
+              </div>
+            </div>
+            <div class="flex items-end">
+              <button onclick="loadGraphData()" class="btn-primary w-full py-2.5 rounded-xl font-medium text-xs flex items-center justify-center space-x-1.5">
+                <i data-lucide="filter" class="w-3.5 h-3.5"></i>
+                <span>Apply Graph Filters</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Color Coded Schema Legend Pills -->
+          <div class="pt-3 border-t border-slate-800 space-y-2">
+            <div class="text-xs font-semibold text-slate-400 uppercase">Filter by Climate Node Type:</div>
+            <div id="nodeTypePills" class="flex flex-wrap gap-2"></div>
+          </div>
+        </div>
+
+        <!-- Graph Viewport & Inspector Side Drawer -->
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+          <!-- Canvas -->
+          <div class="lg:col-span-3 bg-surface-card border border-surface-border rounded-2xl overflow-hidden relative shadow-xl" style="height: 600px;">
+            <div id="graphNetworkCanvas" class="w-full h-full"></div>
+            <div id="graphLoadingOverlay" class="absolute inset-0 bg-slate-950/70 backdrop-blur-sm flex items-center justify-center hidden">
+              <div class="flex items-center space-x-3 text-emerald-400 text-sm font-medium">
+                <i data-lucide="loader-2" class="w-6 h-6 animate-spin"></i>
+                <span>Simulating Knowledge Graph Physics...</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Entity & Edge Inspector Panel -->
+          <div class="bg-surface-card border border-surface-border rounded-2xl p-5 space-y-5 overflow-y-auto" style="max-height: 600px;">
+            <h3 class="text-sm font-bold uppercase tracking-wider text-slate-400 flex items-center space-x-2">
+              <i data-lucide="info" class="w-4 h-4 text-emerald-400"></i>
+              <span>Inspector Panel</span>
+            </h3>
+
+            <div id="inspectorEmptyState" class="text-center py-12 text-slate-500 text-xs">
+              <i data-lucide="mouse-pointer-click" class="w-8 h-8 mx-auto mb-2 opacity-50"></i>
+              <p>Click any Node or Relationship Edge in the network to inspect its verified evidence quote & properties.</p>
+            </div>
+
+            <!-- Node Details Card -->
+            <div id="inspectorNodeDetails" class="hidden space-y-3">
+              <div class="pb-2 border-b border-slate-800">
+                <span id="insNodeType" class="px-2 py-0.5 rounded text-[10px] font-semibold uppercase bg-slate-800 text-emerald-400">Entity</span>
+                <h4 id="insNodeName" class="text-base font-bold text-white mt-1">Node Name</h4>
+                <div id="insNodeCanonical" class="text-xs font-mono text-slate-400">canonical_id</div>
+              </div>
+              <div class="text-xs space-y-1.5">
+                <div class="flex justify-between text-slate-400">
+                  <span>Network Degree:</span>
+                  <span id="insNodeDegree" class="font-bold text-white">4</span>
+                </div>
+              </div>
+              <button onclick="traverseFromSelectedNode()" class="btn-secondary w-full py-2 rounded-xl text-xs flex items-center justify-center space-x-1.5">
+                <i data-lucide="git-fork" class="w-3.5 h-3.5"></i>
+                <span>Explore 2-Hop Traversal</span>
+              </button>
+            </div>
+
+            <!-- Edge Details Card -->
+            <div id="inspectorEdgeDetails" class="hidden space-y-3">
+              <div class="pb-2 border-b border-slate-800">
+                <span id="insEdgeType" class="px-2 py-0.5 rounded text-[10px] font-semibold uppercase bg-indigo-950 text-indigo-400 border border-indigo-700/50">CAUSES</span>
+                <h4 id="insEdgeLabel" class="text-sm font-bold text-white mt-1">Source &rarr; Target</h4>
+              </div>
+              <div class="space-y-2 text-xs">
+                <div class="text-slate-400 font-semibold">Supporting Scientific Excerpt:</div>
+                <div id="insEdgeQuote" class="p-3 rounded-lg bg-slate-900 border border-slate-800 text-slate-200 italic leading-relaxed">"..."</div>
+                <div class="text-[11px] text-slate-400 space-y-1 pt-1">
+                  <div><strong>Document:</strong> <span id="insEdgeDoc" class="font-mono text-slate-300">doc.txt</span></div>
+                  <div><strong>Page:</strong> <span id="insEdgePage">1</span> | <strong>Chunk:</strong> <span id="insEdgeChunk" class="font-mono">chk_01</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Causal Path Finder Tool -->
+        <div class="bg-surface-card border border-surface-border rounded-2xl p-6 space-y-4">
+          <h3 class="text-base font-bold text-white flex items-center space-x-2">
+            <i data-lucide="route" class="w-5 h-5 text-amber-400"></i>
+            <span>Causal Pathway Discovery Tool</span>
+          </h3>
+          <p class="text-xs text-slate-400">Discover the shortest causal pathway between any two climate entities across multi-hop research documents.</p>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div>
+              <label class="text-xs font-semibold text-slate-400 uppercase">Start Entity:</label>
+              <select id="pathStartSelect" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-emerald-500"></select>
+            </div>
+            <div>
+              <label class="text-xs font-semibold text-slate-400 uppercase">Target Entity:</label>
+              <select id="pathEndSelect" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-emerald-500"></select>
+            </div>
+            <div class="flex items-end">
+              <button onclick="findCausalPath()" class="btn-primary w-full py-2.5 rounded-xl text-xs font-semibold flex items-center justify-center space-x-1.5">
+                <i data-lucide="zap" class="w-3.5 h-3.5"></i>
+                <span>Trace Causal Chain</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Path Output -->
+          <div id="causalPathOutput" class="hidden p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-3"></div>
+        </div>
+      </section>
+
+      <!-- ================================================================= -->
+      <!-- TAB 4: MULTI-PARADIGM LAB -->
+      <!-- ================================================================= -->
+      <section id="tab-compare" class="tab-pane space-y-6">
+        <div>
+          <h2 class="text-2xl font-bold text-white flex items-center space-x-2">
+            <i data-lucide="git-compare" class="w-6 h-6 text-emerald-400"></i>
+            <span>Information Retrieval Multi-Paradigm Comparison Lab</span>
+          </h2>
+          <p class="text-sm text-slate-400">Execute identical queries across all 5 retrieval algorithms simultaneously to understand their respective strengths and failure modes.</p>
+        </div>
+
+        <div class="bg-surface-card border border-surface-border rounded-2xl p-6 space-y-4">
+          <div class="flex gap-3">
+            <input id="compareInput" type="text" value="How does global warming cause agricultural yield decline in India and what adaptation strategies exist?" 
+              class="flex-1 bg-slate-900 border border-slate-700 rounded-xl px-5 py-3 text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:border-emerald-500">
+            <button onclick="runComparison()" id="compareSubmitBtn" class="btn-primary px-6 py-3 rounded-xl font-semibold text-sm flex items-center space-x-2">
+              <i data-lucide="play" class="w-4 h-4"></i>
+              <span>Compare All 5 Engines</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Comparison Summary Cards -->
+        <div id="compareResultsGrid" class="hidden grid grid-cols-1 md:grid-cols-5 gap-4"></div>
+
+        <!-- Detailed Method Inspection Tabs -->
+        <div id="compareDetailedSection" class="hidden bg-surface-card border border-surface-border rounded-2xl p-6 space-y-4">
+          <h3 class="text-base font-bold text-white">Top Retrieved Passages by Method</h3>
+          <div id="compareTabsHeaders" class="flex border-b border-slate-800 space-x-2"></div>
+          <div id="compareTabsContent" class="pt-4 space-y-3"></div>
+        </div>
+      </section>
+
+      <!-- ================================================================= -->
+      <!-- TAB 5: BENCHMARK EVALUATION HUB -->
+      <!-- ================================================================= -->
+      <section id="tab-benchmark" class="tab-pane space-y-6">
+        <div class="flex flex-wrap items-center justify-between gap-4">
+          <div>
+            <h2 class="text-2xl font-bold text-white flex items-center space-x-2">
+              <i data-lucide="line-chart" class="w-6 h-6 text-emerald-400"></i>
+              <span>Quantitative Benchmark Evaluation Hub</span>
+            </h2>
+            <p class="text-sm text-slate-400">Standardized 32-query IR evaluation measuring Precision@K, Recall@K, MRR, MAP (&le; 1.0), NDCG@K, Latency, and Evidence Grounding.</p>
+          </div>
+          <button onclick="runBenchmarkEvaluation()" id="runBenchmarkBtn" class="btn-primary px-5 py-2.5 rounded-xl text-sm font-semibold flex items-center space-x-2 shadow-lg shadow-emerald-600/30">
+            <i data-lucide="play" class="w-4 h-4"></i>
+            <span>Execute 32-Query Benchmark</span>
+          </button>
+        </div>
+
+        <!-- Benchmark Metrics Table Card -->
+        <div class="bg-surface-card border border-surface-border rounded-2xl p-6 space-y-4 shadow-xl">
+          <h3 class="text-base font-bold text-white">Actual Computed Benchmark Results (32 Curated Queries)</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs">
+              <thead class="bg-slate-900/80 text-slate-400 uppercase tracking-wider border-b border-slate-800">
+                <tr>
+                  <th class="py-3 px-4">Retrieval Engine</th>
+                  <th class="py-3 px-4 text-center">Precision@K</th>
+                  <th class="py-3 px-4 text-center">Recall@K</th>
+                  <th class="py-3 px-4 text-center">MRR</th>
+                  <th class="py-3 px-4 text-center">MAP (&le; 1.0)</th>
+                  <th class="py-3 px-4 text-center">NDCG@K</th>
+                  <th class="py-3 px-4 text-center">Avg Latency (ms)</th>
+                  <th class="py-3 px-4 text-center">Evidence Support</th>
+                </tr>
+              </thead>
+              <tbody id="benchmarkTableBody" class="divide-y divide-slate-800 text-slate-200 font-mono"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Interactive Charts Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-surface-card border border-surface-border rounded-2xl p-6 space-y-3">
+            <h4 class="font-bold text-white text-sm">Retrieval Metrics Comparison (P@K, R@K, NDCG@K)</h4>
+            <div style="height: 320px;">
+              <canvas id="benchmarkBarChart"></canvas>
+            </div>
+          </div>
+          <div class="bg-surface-card border border-surface-border rounded-2xl p-6 space-y-3">
+            <h4 class="font-bold text-white text-sm">Holistic Retrieval Profile (Radar)</h4>
+            <div style="height: 320px;">
+              <canvas id="benchmarkRadarChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- 32 Curated Queries Viewer -->
+        <div class="bg-surface-card border border-surface-border rounded-2xl p-6 space-y-4">
+          <div class="flex items-center justify-between">
+            <h3 class="text-base font-bold text-white">32 Curated Benchmark Queries & Ground Truth</h3>
+            <span class="text-xs text-slate-400">Verifiable Ground-Truth Mappings</span>
+          </div>
+          <div class="max-h-80 overflow-y-auto space-y-2 pr-2" id="benchmarkQueriesList"></div>
+        </div>
+      </section>
+
+      <!-- ================================================================= -->
+      <!-- TAB 6: DOCUMENT LIBRARY -->
+      <!-- ================================================================= -->
+      <section id="tab-documents" class="tab-pane space-y-6">
+        <div class="flex flex-wrap items-center justify-between gap-4">
+          <div>
+            <h2 class="text-2xl font-bold text-white flex items-center space-x-2">
+              <i data-lucide="folder-git-2" class="w-6 h-6 text-emerald-400"></i>
+              <span>Climate Document Repository</span>
+            </h2>
+            <p class="text-sm text-slate-400">Manage authentic IPCC, UNFCCC, ICAR, and WMO research documents, chunk provenance, and deduplication hashes.</p>
+          </div>
+          <button onclick="ingestDefaultCorpus()" class="btn-secondary px-4 py-2 rounded-xl text-xs flex items-center space-x-1.5">
+            <i data-lucide="download-cloud" class="w-4 h-4 text-emerald-400"></i>
+            <span>Re-Ingest Authentic Default Corpus</span>
+          </button>
+        </div>
+
+        <!-- Upload Form Card -->
+        <div class="bg-surface-card border border-surface-border rounded-2xl p-6 space-y-4">
+          <h3 class="text-sm font-bold text-white uppercase tracking-wider flex items-center space-x-2">
+            <i data-lucide="upload" class="w-4 h-4 text-emerald-400"></i>
+            <span>Upload New Climate Documents (PDF, DOCX, TXT)</span>
+          </h3>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="md:col-span-2">
+              <input id="docFileInput" type="file" multiple accept=".pdf,.docx,.txt" 
+                class="w-full bg-slate-900 border border-dashed border-slate-700 rounded-xl p-4 text-xs text-slate-300 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-emerald-600 file:text-white hover:file:bg-emerald-500 cursor-pointer">
+            </div>
+            <div class="space-y-3">
+              <div class="flex items-center justify-between text-xs text-slate-400">
+                <span>Chunk Size: <strong id="uploadChunkSizeVal" class="text-white">250</strong> words</span>
+                <input id="uploadChunkSize" type="range" min="100" max="600" value="250" class="accent-emerald-500 w-24">
+              </div>
+              <div class="flex items-center justify-between text-xs text-slate-400">
+                <span>Overlap: <strong id="uploadChunkOverlapVal" class="text-white">50</strong> words</span>
+                <input id="uploadChunkOverlap" type="range" min="10" max="150" value="50" class="accent-emerald-500 w-24">
+              </div>
+            </div>
+          </div>
+
+          <div class="flex justify-end">
+            <button onclick="uploadFiles()" id="uploadBtn" class="btn-primary px-6 py-2.5 rounded-xl text-xs font-semibold flex items-center space-x-2">
+              <i data-lucide="plus-circle" class="w-4 h-4"></i>
+              <span>Process & Extract Knowledge Graph</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Document Cards Grid -->
+        <div id="documentCardsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+      </section>
+
+      <!-- ================================================================= -->
+      <!-- TAB 7: SYSTEM DIAGNOSTICS & SCHEMA -->
+      <!-- ================================================================= -->
+      <section id="tab-diagnostics" class="tab-pane space-y-6">
+        <div>
+          <h2 class="text-2xl font-bold text-white flex items-center space-x-2">
+            <i data-lucide="cpu" class="w-6 h-6 text-emerald-400"></i>
+            <span>System Diagnostics & Climate Schema</span>
+          </h2>
+          <p class="text-sm text-slate-400">Inspect dual graph database backends, local synthesis models, and the standardized 10-node 8-relation schema.</p>
+        </div>
+
+        <!-- Backend Health Diagnostics Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-surface-card border border-surface-border rounded-2xl p-6 space-y-4">
+            <h3 class="text-base font-bold text-white flex items-center space-x-2">
+              <i data-lucide="database" class="w-5 h-5 text-blue-400"></i>
+              <span>Dual Graph Storage Backend</span>
+            </h3>
+            <div class="space-y-3 text-xs">
+              <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-between">
+                <div>
+                  <div class="font-semibold text-white">NetworkX MultiDiGraph (Disk Persistent)</div>
+                  <div class="text-slate-400 text-[11px]">Zero dependencies &bull; 100% offline standalone engine</div>
+                </div>
+                <span class="px-2.5 py-1 rounded-full bg-emerald-900/60 text-emerald-400 border border-emerald-700/50 font-semibold text-[10px]">Active</span>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-between">
+                <div>
+                  <div class="font-semibold text-white">Neo4j Community 5.x (Bolt Protocol)</div>
+                  <div class="text-slate-400 text-[11px]">bolt://localhost:7687 &bull; Cypher query engine</div>
+                </div>
+                <span id="diagNeo4jBadge" class="px-2.5 py-1 rounded-full bg-slate-800 text-slate-400 border border-slate-700 font-semibold text-[10px]">Checking...</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-surface-card border border-surface-border rounded-2xl p-6 space-y-4">
+            <h3 class="text-base font-bold text-white flex items-center space-x-2">
+              <i data-lucide="bot" class="w-5 h-5 text-indigo-400"></i>
+              <span>Answer Synthesis Backend</span>
+            </h3>
+            <div class="space-y-3 text-xs">
+              <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-between">
+                <div>
+                  <div class="font-semibold text-white">Deterministic Extractive Engine</div>
+                  <div class="text-slate-400 text-[11px]">Strict passage extraction with exact sentence provenance</div>
+                </div>
+                <span class="px-2.5 py-1 rounded-full bg-emerald-900/60 text-emerald-400 border border-emerald-700/50 font-semibold text-[10px]">Active</span>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-between">
+                <div>
+                  <div class="font-semibold text-white">Local Ollama LLM (llama3 / mistral)</div>
+                  <div class="text-slate-400 text-[11px]">http://localhost:11434 &bull; Strict evidence grounding prompt</div>
+                </div>
+                <span id="diagOllamaBadge" class="px-2.5 py-1 rounded-full bg-slate-800 text-slate-400 border border-slate-700 font-semibold text-[10px]">Checking...</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 10 Node Types & 8 Relationship Types Dictionary -->
+        <div class="bg-surface-card border border-surface-border rounded-2xl p-6 space-y-6">
+          <h3 class="text-base font-bold text-white flex items-center space-x-2">
+            <i data-lucide="book-marked" class="w-5 h-5 text-emerald-400"></i>
+            <span>Domain-Specific Climate Knowledge Graph Schema</span>
+          </h3>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="space-y-3">
+              <h4 class="text-xs font-semibold uppercase tracking-wider text-slate-400">10 Node Types (Entity Classes)</h4>
+              <div class="space-y-2 text-xs" id="schemaNodeTypesList"></div>
+            </div>
+            <div class="space-y-3">
+              <h4 class="text-xs font-semibold uppercase tracking-wider text-slate-400">8 Relationship Types (Edge Classes)</h4>
+              <div class="space-y-2 text-xs" id="schemaRelationTypesList"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Document Chunks Modal -->
+  <div id="docChunksModal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden flex items-center justify-center p-6">
+    <div class="bg-surface-card border border-slate-700 rounded-2xl w-full max-w-4xl max-h-[85vh] flex flex-col shadow-2xl">
+      <div class="p-5 border-b border-slate-800 flex items-center justify-between">
+        <div>
+          <h3 id="modalDocTitle" class="font-bold text-white text-base">Document Chunks Viewer</h3>
+          <p id="modalDocFilename" class="text-xs text-slate-400">filename.txt</p>
+        </div>
+        <button onclick="closeDocModal()" class="text-slate-400 hover:text-white p-2">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+      <div id="modalChunksBody" class="p-5 overflow-y-auto space-y-3 flex-1 text-xs"></div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toastNotification" class="fixed bottom-6 right-6 z-50 bg-emerald-600 text-white px-4 py-3 rounded-xl shadow-xl flex items-center space-x-3 text-xs font-medium transform transition-all duration-300 translate-y-20 opacity-0 pointer-events-none">
+    <i data-lucide="check" class="w-4 h-4"></i>
+    <span id="toastMsg">Operation successful!</span>
+  </div>
+
+  <!-- App JavaScript -->
+  <script src="/js/app.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
